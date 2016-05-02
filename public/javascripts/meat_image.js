@@ -110,8 +110,7 @@ MeatImage.prototype = {
   
   onFaceDetect: function() { 
     async.each(this.faces, function(face, cb) {
-      face.drawMeat();
-      cb();
+      face.drawMeat(cb);
     }, function(err) {
       Util.loading(false);
       Util.showDownloadButton();

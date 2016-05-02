@@ -129,7 +129,7 @@ Face.prototype = {
       Util.drawCorners(this.rightEyeCorners);
    },
    
-   drawMeat: function() {
+   drawMeat: function(cb) {
 
       var img = new Image();
       img.src = this.meat.src;
@@ -146,13 +146,13 @@ Face.prototype = {
          var desH = face.faceHeight + 4*face.scaleFactor;
          ctx.drawImage(img, srcX, srcY, srcW, srcH, desX, desY, desW, desH);
          
-         face.clipOutFeatures();
+         face.clipOutFeatures(cb);
          
       };
   
    },
    
-   clipOutFeatures: function() {
+   clipOutFeatures: function(cb) {
       ctx.save();
       ctx.globalCompositeOperation = 'destination-out';
       
@@ -248,6 +248,8 @@ Face.prototype = {
       ctx.closePath();
       
       ctx.restore(); 
+      
+      cb();
    }
   
 };

@@ -29,6 +29,17 @@ window.fbAsyncInit = function() {
     statusChangeCallback(response);
   });
 
+  // Share -- not working
+  $("#fb-share").click(function() {
+    FB.ui({
+      method: "feed",
+      link: "http://hellovelocity.com/",
+      caption: "Example.com",
+      description: "Here is the text I want to share.",
+      picture: "http://www.hellovelocity.com/images/fb-banner.png"
+    });
+  });
+  
 };
 
 // This is called with the results from from FB.getLoginStatus().
@@ -190,19 +201,6 @@ function handleProfilePictureThumbnail(el) {
   });
     
 }
-
-
-// Share -- not working
-$("#fb-share").click(function() {
-    FB.ui({
-        method: "feed",
-        link: "http://hellovelocity.com/",
-        caption: "Example.com",
-        description: "Here is the text I want to share.",
-        picture: "http://www.hellovelocity.com/images/fb-banner.png"
-    });
-});
-
 
 
 

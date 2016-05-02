@@ -105,34 +105,10 @@ var Util = {
   /* TODO: not working */
   uploadImage: function() {
     bgCtx.drawImage(canvas, 0, 0);
-    var image = bgCanvas.toDataURL('image/png');
-    var blobName = "meatface:"+image.slice(0, 50);
+    var dt = bgCanvas.toDataURL('image/png');
     
-    var hash = CryptoJS.HmacSHA256(
-      "PUT\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Sun, 1 May 2016 18:00:00 GMT\nx-ms-version:2015-04-05\n/meatface/devtest\nrestype:container\ntimeout:30",
-      "bdpfrGoxtdyFuCJ9pbFASg6EO3ZUpAjOzzaOvyi8VJkxN1Jk4uM"
-    );
-    var hashInBase64 = CryptoJS.enc.Base64.stringify(hash);
-    
-    // look at "Signature String"
-    $.ajax({
-      type: 'PUT',
-      url: "https://meatface.blob.core.windows.net/devtest/"+blobName,
-      headers: {
-        "Authorization": "SharedKey meatface:Qr3/GCP01gdMt8W4uyRAR0Ln0ofYC6VYQFNGyBtwG+0=",
-        "x-ms-date": "Sun, 1 May 2016 18:00:00 GMT",//this.getTodayDate(),
-        "x-ms-version": "2015-04-05",
-        "x-ms-blob-type": "BlockBlob"
-        //"Content-Type": "image/png"
-      },
-      data: image
-    })
-    .done(function(err) {
-      if (err) {
-      
-      } else {
-        console.log("done"); 
-      }
+    $.post('/upload', { img : dt }, function(data) {
+      console.log(data); 
     });
   },
   
