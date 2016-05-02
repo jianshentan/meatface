@@ -1,0 +1,155 @@
+/* =============================
+   Utility Class
+   ============================= */
+ 
+var Util = {
+  dataURLToBinary: function(dataURI) {
+    var BASE64_MARKER = ';base64,';
+    var base64Index = dataURI.indexOf(BASE64_MARKER) + BASE64_MARKER.length;
+    var base64 = dataURI.substring(base64Index);
+    var raw = window.atob(base64);
+    var rawLength = raw.length;
+    var array = new Uint8Array(new ArrayBuffer(rawLength));
+  
+    for(var i = 0; i < rawLength; i++) {
+      array[i] = raw.charCodeAt(i);
+    }
+    //return new Blob(array, {type: "application/octet-stream"});
+    return array;
+  },
+  /**
+   * corners is an object with propeties: 
+   *   "topleft", "topRight", "bottomLeft", and "bottomRight"
+   */
+  drawCorners: function(corners) {
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(corners.topLeft.x, corners.topLeft.y);
+    ctx.lineTo(corners.topRight.x, corners.topRight.y);
+    ctx.lineTo(corners.bottomRight.x, corners.bottomRight.y);
+    ctx.lineTo(corners.bottomLeft.x, corners.bottomLeft.y);
+    ctx.lineTo(corners.topLeft.x, corners.topLeft.y);
+    ctx.closePath();
+    ctx.stroke();
+  },
+  
+  downloadCanvas: function() {
+    bgCtx.drawImage(canvas, 0, 0);
+    var dt = bgCanvas.toDataURL('image/png');
+    /* Change MIME type to trick the browser to downlaod the file instead of displaying it */
+    dt = dt.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
+  
+    /* In addition to <a>'s "download" attribute, you can define HTTP-style headers */
+    //dt = dt.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=Canvas.png');
+  
+    this.href = dt;
+  },
+  
+  hideUploadButton: function() {
+    $(".sc-load-image").hide(); 
+  },
+  
+  showUploadButton: function() {
+    $(".sc-load-image").show(); 
+  },
+  
+  showDownloadButton: function() {
+    $("#download-canvas").show();
+  },
+  
+  isValidUrl: function(str) {
+    if(/^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test(str)) {
+      return 1;
+    } else {
+      return -1;
+    }   
+  },
+ 
+  getImageFromUrl: function(url, cb) {
+    var img = document.getElementById('imageUrl');
+    img.setAttribute('crossOrigin', 'anonymous');
+    img.onload = function() {
+      var canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+      var ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+      var dataURL = canvas.toDataURL("image/png");
+      //return dataURL;  
+      cb(dataURL);
+    }
+    img.src = url;
+    //return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+  },
+  
+  handleError: function(str) {
+    if (str) {
+      alert(str);
+    } else {
+      alert("Errored. Please try again.");
+    }
+    
+    Util.showDownloadButton();
+    Util.showUploadButton();
+  },
+  
+  loading: function(flag) {
+    if (flag) {
+      $("#loading-screen").show();
+    } else {
+      $("#loading-screen").hide();    
+    }
+  },
+  
+  /* TODO: not working */
+  uploadImage: function() {
+    bgCtx.drawImage(canvas, 0, 0);
+    var image = bgCanvas.toDataURL('image/png');
+    var blobName = "meatface:"+image.slice(0, 50);
+    
+    var hash = CryptoJS.HmacSHA256(
+      "PUT\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Sun, 1 May 2016 18:00:00 GMT\nx-ms-version:2015-04-05\n/meatface/devtest\nrestype:container\ntimeout:30",
+      "bdpfrGoxtdyFuCJ9pbFASg6EO3ZUpAjOzzaOvyi8VJkxN1Jk4uM"
+    );
+    var hashInBase64 = CryptoJS.enc.Base64.stringify(hash);
+    
+    // look at "Signature String"
+    $.ajax({
+      type: 'PUT',
+      url: "https://meatface.blob.core.windows.net/devtest/"+blobName,
+      headers: {
+        "Authorization": "SharedKey meatface:Qr3/GCP01gdMt8W4uyRAR0Ln0ofYC6VYQFNGyBtwG+0=",
+        "x-ms-date": "Sun, 1 May 2016 18:00:00 GMT",//this.getTodayDate(),
+        "x-ms-version": "2015-04-05",
+        "x-ms-blob-type": "BlockBlob"
+        //"Content-Type": "image/png"
+      },
+      data: image
+    })
+    .done(function(err) {
+      if (err) {
+      
+      } else {
+        console.log("done"); 
+      }
+    });
+  },
+  
+  getTodayDate: function() {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    if(dd<10) {
+      dd='0'+dd;
+    } 
+    if(mm<10) {
+      mm='0'+mm;
+    } 
+    today = mm+'-'+dd+'-'+yyyy;
+    return today;    
+  }
+  
+  
+};

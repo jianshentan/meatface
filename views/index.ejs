@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" ref="stylesheet">-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="stylesheets/style.css" rel="stylesheet">
+  </head>
+  <script>
+
+    // Load the Facebook SDK asynchronously
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+  </script>
+    
+  <!-- jquery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <!-- bootstrap library -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!-- async library -->
+  <script src="javascripts/async.min.js"></script>
+  <!-- My .js Files -->
+  <script src="javascripts/util.js"></script>
+  <script src="javascripts/facebook.js"></script>
+  <script src="javascripts/meat_image.js"></script>
+  <script src="javascripts/face.js"></script>
+
+  
+  <body>
+    <!-- this is used in the Util module for the getImageFromUrl function-->
+    <img style="display:none" src="" id="imageUrl">
+                
+    <!-- Modal to upload image -->
+    <div class="modal uploadModal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Choose A Selfie</h4>
+          </div>
+          <div class="modal-body">
+            
+            <div class="row">
+              <div class="col-xs-6">
+                <input type="button" style="width:120px;" class="btn btn-default" id="webcamLoader" value="Use Webcam">
+              </div>
+              <div class="col-xs-6">
+                <label class="sc-upload-label">
+                  <input class="inline-block" type="file" id="loader" class="btn btn-default sc-loader" >
+                  <span style="width:120px;" class="btn btn-default">Upload File</span>
+                </label>
+              </div>
+            </div>
+           
+            <hr>
+            
+            <div class="inline-block">Upload from Facebook:</div>
+            <div class="sc-fb-button inline-block">
+              <fb:login-button scope="public_profile, user_photos" onlogin="checkLoginState();">
+              </fb:login-button>
+              <span id="status"></span>
+            </div>
+            <div class="sc-fb-profile-pictures">
+              <div class="sc-fb-profile-picture-options"></div>
+              <img class="sc-fb-profile-picture" src="">
+              <input id="fbLoader" class="sc-fb-profile-picture-submit btn btn-default" type="button" value="Submit"/>
+            </div>
+            
+            <hr>
+            
+            <div class="row">
+              <div class="col-xs-8">
+                <input type="text" class="form-control sc-urlLoaderInput" id="inputKey" placeholder="URL Link to image" style="margin-right:12px;">
+              </div>
+              <div class="col-xs-1"></div>
+              <div class="col-xs-3">
+                <input id="urlLoader" type="button" class="btn btn-default" value="Submit"/>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      
+       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 
+        sc-intro-right sc-intro">
+        <div class="sc-absolute-center sc-banner">
+          <div class="h1">
+            Want to see what Tinder actually does to your face? <br><br> Take a selfie.
+          </div>
+          <div class="h3">We use our propeitary meatface algorithm to achieve the best results.</div>
+        </div> 
+      </div>
+      
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 
+        sc-intro-left sc-intro">
+        <div class="sc-absolute-center sc-device">
+          
+          <!-- Canvas -->
+          <div class="sc-canvas-wrapper">
+            
+            <button type="button" class="btn btn-primary sc-load-image" data-toggle="modal" data-target=".uploadModal">New Image</button>
+            
+            <div class="sc-camera">
+              <img src="/images/camera_icon.png">
+              <div class="h3">#morethanmeat</div>
+            </div>
+            
+            <canvas id="canvas-back" class="sc-canvas"></canvas>
+            <canvas id="canvas-front" class="sc-canvas"></canvas>
+            
+            <div id="loading-screen" class="sc-loading-screen">
+              <div class="sc-loading-screen-text">loading...</div>
+            </div>
+            
+            <video autoplay="true" id="video-stream" class="sc-video-stream" style="display:none"></video>
+            <button type="button" class="sc-take-picture">Take Picture</button>
+            
+            <a id="download-canvas" download="Canvas.png" href="#" 
+              style="display: none;">
+              <div class="sc-download">V</div>
+            </a>
+            
+          </div>
+          
+          <!-- Share -->
+          <div class="">
+            <div class="sc-share-button" id="fb-share">
+              fb
+            </div> 
+            <div class="sc-share-button">
+              tw
+            </div> 
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="sc-call-to-action">
+      <div class="h1">Take a photo. Join the movement.</div>
+      <div class="h3">#MORETHANMEAT</div>
+    </div>
+    
+    <div class="row">
+      
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 
+        sc-body-left sc-body">
+        <div class="sc-absolute-center sc-banner">
+          <div class="h1">It's time to come to terms with the swipe. </div>
+          <div class="h3">The only time people should look at you like a piece of meat is if you choose it.</div>
+        </div>
+      </div>
+      
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 
+        sc-body-right sc-body">
+        
+        <div class="sc-body-right-top">
+          <!--<div class="sc-tag sc-tag-siren">
+            1. MEAT THE MAKER
+          </div>-->
+          <div class="sc-absolute-center sc-maker-wrapper">
+            <div class="row">
+              <div class="col-xs-3 center">
+                <img src="images/siren_logo.png" class="sc-maker-logo sc-maker-logo-siren" /> 
+              </div>
+              <div class="col-xs-9">
+                <div class="sc-maker-desc sc-maker-desc-siren">
+                  <div class="h3">
+                    <a href="http://www.siren.mobi" target="_blank">Siren</a>
+                  </div>
+                  <div class="h4">
+                    The only time people should look at you like a piece of meat is if you choose it.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="sc-body-right-bottom">
+          <!--<div class="sc-tag sc-tag-hv">
+            2. MEAT THE MAKER
+          </div>-->
+          <div class="sc-absolute-center sc-maker-wrapper">
+            <div class="row">
+              <div class="col-xs-3 center">
+                <img src="images/hv_logo.png" class="sc-maker-logo sc-maker-logo-hv" /> 
+              </div>
+              <div class="col-xs-9">
+                <div class="sc-maker-desc sc-maker-desc-hv">
+                  <div class="h3">
+                    <a href="http://www.hellovelocity.com" target="_blank">Hello Velocity</a>
+                  </div>
+                  <div class="h4">
+                    The only time people should look at you like a piece of meat is if you choose it.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="sc-footer h3">
+      <div class="sc-footer-left">
+        <a href="">F . A . Q</a>
+      </div>
+      <div class="sc-footer-right">
+        Sharing icons  
+        <div
+          class="fb-like"
+          data-share="true"
+          data-width="200"
+          data-show-faces="false">
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="javascripts/index.js"></script>
+  
+</html>

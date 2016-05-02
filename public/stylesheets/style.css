@@ -1,0 +1,423 @@
+
+/* ===========================
+   classes that begin with 'sc-' denotes 
+   that it is styled for this project
+   sh stands for 'siren-campaign'
+   
+   Color mapping:
+   peach - ea0047
+   teal - 2ff1ee
+   =========================== */
+   
+body {
+  margin: 0px;
+}
+.sc-absolute-center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+.h1 {
+  font-size: 48px;
+  line-height: 54px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.h2 {
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: 800;
+}
+.h3 {
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.h4 {
+   font-size: 18px;
+   line-height: 24px;
+   font-weight: 700;
+}
+.center {
+  text-align: center;
+}
+.row {
+  margin: 0px;
+}
+div[class^='col'],
+div[class*=' col']{
+  padding: 0px;
+}
+input[type='file'] {
+  color: transparent;
+}
+label.sc-upload-label input[type="file"] {
+  position: fixed;
+  top: -1000px;
+}
+.btn:focus,.btn:active {
+   outline: none !important;
+}
+.inline-block {
+    display: inline-block;
+}
+ 
+ 
+/* ===========================
+   Modal
+   =========================== */
+ 
+.modal-content {
+  border-radius: 0px;
+  border: 0px;
+  text-align: center;
+} 
+.modal-header {
+  background-color: #ea0047;
+  color: white;
+}
+.modal button.close {
+  color: white;
+  opacity: 1.0;
+}
+ 
+/* ===========================
+   Intro - top
+   =========================== */
+ 
+.sc-intro-left {
+  background-color: #2ff1ee;
+  background-image: url('/images/bg_tile.png');
+  background-repeat: repeat;
+  background-size: 100px;
+  float: left;
+}
+.sc-intro-right {
+  background-color: white;
+  float: right;
+}
+.sc-intro {
+  height: 100vh;
+}  
+
+/* ===========================
+   body - second 
+   =========================== */
+ 
+.sc-body-left {
+  display: block;
+  position: relative;
+}
+.sc-body-left::after {
+  content: "";
+  opacity: 0.1;
+  background-image: url('/images/bg_meatmarket.png');
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.sc-body-right-bottom {
+  background-color: #ea0047;
+  background-image: url('/images/bg_tile.png');
+  background-repeat: repeat;
+  background-size: 100px;
+  height: 50%;
+  width: 100%;
+  position: relative;
+}
+.sc-body-right-top {
+  background-color: #2ff1ee;
+  height: 50%;
+  width: 100%;
+  position: relative;
+}
+.sc-body {
+  height: 100vh;
+}  
+.sc-maker-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+}
+.sc-maker-logo-siren {
+  box-shadow: 12px 12px 0px white;
+}
+.sc-maker-logo-hv {
+  box-shadow: 12px 12px 0px rgba(0,0,0,0.4);
+}
+.sc-maker-wrapper {
+  width: 80%;
+  text-align: left;
+}
+.sc-maker-desc {
+  padding: 16px;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.sc-maker-desc > .h3 {
+  margin: 0px;
+}
+.sc-maker-desc a {
+  color: inherit; 
+}
+.sc-maker-desc-siren {
+  color: #ea0047;
+  border: 5px solid #ea0047;
+  box-shadow: 12px 12px 0px white;
+}
+.sc-maker-desc-hv {
+  background-color: white;
+  color: #ea0047;
+  box-shadow: 12px 12px 0px rgba(0,0,0,0.4);
+}
+   
+/* ===========================
+   Device 
+   =========================== */
+ 
+.sc-device {
+  width: 384px;
+  height: 480px;
+  padding: 12px;
+  background-color: white;
+  box-shadow: 12px 12px 0px #ea0047;
+}
+.sc-load-image {
+  width: 150px;
+  background-color: rgba(234,0,71,0.5);
+  height: 45px;
+  line-height: 45px;
+  color: white;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  border-radius: 0px;
+  border: 0px;
+  padding: 0px;
+}
+.sc-load-image:hover {
+  background-color: rgba(234,0,71,1.0);
+  cursor: pointer;
+}
+.sc-load-image:hover, 
+.sc-load-image:focus, 
+.sc-load-image:active {
+  background-color: rgba(234,0,71,1.0);
+}
+.sc-download {
+  position: absolute;
+  border-radius: 30px;
+  top: 12px;
+  right: 12px;
+  background-color: #EA0047;
+  height: 45px;
+  width: 45px;
+  line-height: 45px;
+  color: white;
+  z-index: 100;
+}
+.sc-share-button {
+  display: inline-block;
+  border-radius: 80px;
+  height: 80px;
+  line-height: 60px;
+  width: 80px;
+  background-color: #eee;
+  border: 10px solid #ccc;
+  margin: 12px;
+}
+.sc-camera {
+  position: absolute;
+  z-index: 4;
+  top: 55%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: white;
+}
+.sc-camera img {
+  width: 120px;
+}
+
+/* ===========================
+   Canvas
+   =========================== */
+   
+.sc-canvas-wrapper {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  overflow: hidden;
+}
+.sc-canvas {
+  position: absolute; 
+  top: 0px;
+  left: 0px;
+}
+.sc-video-stream {
+  width: auto;
+  text-align: center;
+  height: 100%;
+  z-index: 2;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.sc-take-picture {
+  display: none;
+  width: 150px;
+  height: 45px;
+  line-height: 45px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2ff1ee;
+  color: #ea0047;
+  z-index: 3;
+  bottom: 24px;
+  border: 0px;
+}
+#canvas-front {
+  z-index: 1;
+}
+#canvas-back {
+  z-index: 0;
+  background-color: #eee;
+}
+.sc-loading-screen {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: #ea0047;
+  color: white;
+  z-index: 200;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.sc-loading-screen-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+
+/* ===========================
+   Banner 
+   =========================== */
+
+.sc-banner {
+  padding-left: 15%;
+  padding-right: 15%;
+  color: #ea0047;
+  text-align: left;
+}
+
+.sc-call-to-action {
+  background-color: #ea0047; 
+  color: white;
+  text-align: center;
+  padding-left: 12%;
+  padding-right: 12%;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.sc-footer {
+  color: #ea0047;
+  background-color: white;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+.sc-footer.h3 {
+  margin: 0px;
+}
+.sc-footer-left {
+  float: left;
+  text-align: left;
+}
+.sc-footer-right {
+  text-align: right;
+}
+
+/* ===========================
+   FAQ 
+   =========================== */
+
+.sc-faq {
+  background-color: #2ff1ee;
+  background-image: url('/images/bg_tile.png');
+  background-repeat: repeat;
+  background-size: 100px; 
+  min-height: 100vh;
+  padding-top: 48px;
+}
+.sc-faq-container {
+  padding: 24px 24px;
+  max-width: 800px;
+  border: 6px solid #ea0047;
+  background-color: white;
+  box-shadow: 12px 12px 0px rgba(0,0,0,0.5);
+}
+.sc-faq-questions {
+   margin-bottom: 8px; 
+}
+
+/* ===========================
+   Modal 
+   =========================== */
+
+.sc-fb-profile-pictures {
+    text-align: center;
+    display: none;
+    position: relative;
+}
+.sc-fb-profile-picture {
+    background-color: red;
+    width: 250px;
+    height: 250px;
+}
+.sc-fb-profile-picture-options {
+    width: 250px;
+    height: 60px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+    margin: 12px auto;
+    cursor: pointer;
+}
+.sc-fb-profile-picture-options:hover {
+    overflow-x: scroll;
+}
+.sc-fb-profile-picture-option {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+}
+.sc-fb-profile-picture-option.active {
+    border: 3px solid red;
+}
+.sc-fb-profile-picture-submit {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 24px;
+    color: white;
+    border-color: white;
+    background-color: rgba(255,255,255,0.3);
+}
