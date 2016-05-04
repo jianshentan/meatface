@@ -29,8 +29,7 @@ window.fbAsyncInit = function() {
     statusChangeCallback(response);
   });
 
-  // Share -- not working
-  $("#fb-share").click(function() {
+  $("#fb-share").on('click', function() {
     FB.ui({
       method: "feed",
       link: "http://hellovelocity.com/",
@@ -40,6 +39,19 @@ window.fbAsyncInit = function() {
     });
   });
   
+};
+
+function updateFbShare(url) {
+  $("#fb-share").addClass("active");
+  $("#fb-share").off('click').on('click', function() {
+    FB.ui({
+      method: "feed",
+      link: "http://meatface.me",
+      caption: "Take A Picture. Join the Movement.",
+      description: "Updated description text...",
+      picture: url
+    });
+  }); 
 };
 
 // This is called with the results from from FB.getLoginStatus().

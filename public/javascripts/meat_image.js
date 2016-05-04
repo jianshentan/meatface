@@ -112,10 +112,21 @@ MeatImage.prototype = {
     async.each(this.faces, function(face, cb) {
       face.drawMeat(cb);
     }, function(err) {
-      Util.loading(false);
-      Util.showDownloadButton();
-      Util.showUploadButton();
-      Util.uploadImage();
+      if (err) {
+        console.log(err);
+        return;
+      }
+      // upload image retrieves the URL that the image is located at
+      Util.uploadImage(function(err, url) {
+        if (!err) {
+          Util.loading(false);
+          Util.showDownloadButton();
+          Util.showUploadButton();  
+          updateFbShare(url);
+        } else {
+          Util.handleError(err);
+        }
+      });
     });
     
   },

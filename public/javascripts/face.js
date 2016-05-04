@@ -129,6 +129,7 @@ Face.prototype = {
       Util.drawCorners(this.rightEyeCorners);
    },
    
+   // start of a chain function: DrawMeat --> ClipOutFeatures --> AddHashTag
    drawMeat: function(cb) {
 
       var img = new Image();
@@ -248,6 +249,16 @@ Face.prototype = {
       ctx.closePath();
       
       ctx.restore(); 
+      
+      this.addHashtag(cb);
+   },
+   
+   addHashtag: function(cb) {
+      ctx.font = "20px Helvetica";
+      ctx.fillStyle = "red";
+      ctx.fillText("#morethanmeat", 10, CANVAS_HEIGHT - 10);
+      
+      console.log( "text" );
       
       cb();
    }

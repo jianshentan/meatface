@@ -30,10 +30,11 @@ router.post('/upload', function(req, res) {
     special: false
   });
   
-  if (imageCacheQueue.length > 10) {
-    imageCacheQueue.shift();
-  }
   imageCacheQueue.push(fileName);
+  if (imageCacheQueue.length > 10) {
+    var fileToDelete = imageCacheQueue.shift();
+    fs.unlink("imageCache/"+fileToDelete+".png");
+  }
   
   fs.writeFile("imageCache/"+ fileName +".png", image, 'base64', function(err) {
     if (err) {
@@ -73,8 +74,6 @@ router.post('/upload', function(req, res) {
           if (!error){
             // file uploaded
             // console.log(error);
-            console.log(response); // logs response
-            console.log(result); // logs result
             
             res.json({
               url: host + "/" + container + "/" + fileName

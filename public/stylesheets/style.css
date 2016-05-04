@@ -236,7 +236,22 @@ label.sc-upload-label input[type="file"] {
   width: 80px;
   background-color: #eee;
   border: 10px solid #ccc;
+  color: #aaa;
   margin: 12px;
+  font-size: 24px;
+}
+.sc-share-button:hover {
+  cursor: pointer;
+}
+.sc-share-button.active {
+  border: 10px solid #2ff1ee;
+  color: white;
+}
+.sc-share-button.active#fb-share{
+  background-color: #3b5998;
+}
+.sc-share-button #twitter-share.active {
+  background-color: #55acee;
 }
 .sc-camera {
   position: absolute;
@@ -295,12 +310,17 @@ label.sc-upload-label input[type="file"] {
   z-index: 0;
   background-color: #eee;
 }
+
+/* ===========================
+   Loading Screen 
+   =========================== */
+
 .sc-loading-screen {
   display: none;
   width: 100%;
   height: 100%;
-  background-color: #ea0047;
-  color: white;
+  background-color: #ccc;
+  color: #ea0047;
   z-index: 200;
   position: absolute;
   top: 0px;

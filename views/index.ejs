@@ -13,7 +13,7 @@
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js";
+      js.src = "//connect.facebook.net/en_US/all.js";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
@@ -95,15 +95,19 @@
         sc-intro-right sc-intro">
         <div class="sc-absolute-center sc-banner">
           <div class="h1">
-            Want to see what Tinder actually does to your face? <br><br> Take a selfie.
+            EVER WONDER HOW OTHERS SEE YOU ON TINDER? <br><br> Take a selfie.
           </div>
-          <div class="h3">We use our propeitary meatface algorithm to achieve the best results.</div>
+          <div class="h3">Our proprietary meatface algorithm provides the most accurate reflection of how you really appear to others.</div>
         </div> 
       </div>
       
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 
         sc-intro-left sc-intro">
         <div class="sc-absolute-center sc-device">
+          
+          <div id="loading-screen" class="sc-loading-screen">
+            <div class="sc-loading-screen-text">loading...</div>
+          </div>         
           
           <!-- Canvas -->
           <div class="sc-canvas-wrapper">
@@ -118,16 +122,14 @@
             <canvas id="canvas-back" class="sc-canvas"></canvas>
             <canvas id="canvas-front" class="sc-canvas"></canvas>
             
-            <div id="loading-screen" class="sc-loading-screen">
-              <div class="sc-loading-screen-text">loading...</div>
-            </div>
-            
             <video autoplay="true" id="video-stream" class="sc-video-stream" style="display:none"></video>
             <button type="button" class="sc-take-picture">Take Picture</button>
             
             <a id="download-canvas" download="Canvas.png" href="#" 
               style="display: none;">
-              <div class="sc-download">V</div>
+              <div class="sc-download">
+                <i class="fa fa-download" aria-hidden="true"></i>
+              </div>
             </a>
             
           </div>
@@ -138,7 +140,7 @@
               <i class="fa fa-facebook" aria-hidden="true"></i>
             </div> 
             <div class="sc-share-button">
-              tw
+              <i class="fa fa-twitter" aria-hidden="true"></i>
             </div> 
           </div>
         </div>
@@ -217,7 +219,6 @@
         <a href="">F . A . Q</a>
       </div>
       <div class="sc-footer-right">
-        Sharing icons  
         <div
           class="fb-like"
           data-share="true"

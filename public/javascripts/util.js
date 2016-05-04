@@ -90,25 +90,31 @@ var Util = {
       alert("Errored. Please try again.");
     }
     
+    Util.loading(false);
     Util.showDownloadButton();
     Util.showUploadButton();
   },
   
-  loading: function(flag) {
+  loading: function(flag, cb) {
     if (flag) {
-      $("#loading-screen").show();
+      $("#loading-screen").slideDown();
     } else {
-      $("#loading-screen").hide();    
+      $("#loading-screen").slideUp();    
     }
   },
   
   /* TODO: not working */
-  uploadImage: function() {
+  uploadImage: function(cb) {
     bgCtx.drawImage(canvas, 0, 0);
     var dt = bgCanvas.toDataURL('image/png');
     
-    $.post('/upload', { img : dt }, function(data) {
+    $.post('/upload', { img : dt })
+    .done(function(data) {
+      cb(null, data.url);
       console.log(data); 
+    })
+    .fail(function(xhr, textStatus, errorThrown) {
+      cb(textStatus, null);
     });
   },
   
