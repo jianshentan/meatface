@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #ea0047;
+        color: white;
+        font-family: Helvetica;
+        text-align: center;
+        font-size: 14px;
+      }  
+      input ,
+      button {
+        background-color: #ea0047;
+        color: white;
+        border: 1px solid white;
+        padding: 0px;
+      }
+      input {
+        height: 24px;
+        padding-left: 2px;
+        padding-right: 2px;
+      }
+      input:focus {
+        outline: none;
+      }
+      button {
+        height: 26px;
+        width: 48px;
+      }
+      .content {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="">
+        Please enter the password:
+      </div>
+      <br>
+      <form name="password" method="post" action="/">
+        <input type="password" name="password">
+        <button>Submit</button>
+      </form>
+      <br>
+      <% if (access == 'denied') { %>
+        <strong>Access Denied. Try again.</strong>
+      <% } %>
+    </div>
+  </body>
+</html>

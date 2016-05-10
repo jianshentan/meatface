@@ -1,23 +1,47 @@
+var BITLY_ACCESS_TOKEN = process.env.BITLY_ACCESS_TOKEN;
+var STORAGE_ACCOUNT_KEY = process.env.STORAGE_ACCOUNT_KEY;
+var STORAGE_ACCOUNT_NAME = process.env.STORAGE_ACCOUNT_NAME;
+var PRIVATE_PREVIEW_PASSWORD = process.env.PRIVATE_PREVIEW_PASSWORD;
+
 var express = require('express');
 var router = express.Router();
 var randomString = require('random-string');
 var fs = require('fs');
 var azure = require('azure-storage');
 var async = require('async');
+var Bitly = require('bitly');
+var bitly = new Bitly(BITLY_ACCESS_TOKEN);
 
 var imageCacheQueue= [];
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  res.render('gate', { access: "false" });
+});
+
+router.post('/', function(req, res, next) {
+  console.log(PRIVATE_PREVIEW_PASSWORD);
+  if (req.body.password == PRIVATE_PREVIEW_PASSWORD) {
+    res.render('index');
+  } else {
+    res.render('gate', { access: "denied" });
+  }
 });
 
 router.get('/faq', function(req, res, next) {
   res.render('faq');
 });
 
-router.post('/test', function(req, res) {
-  console.log("in test!");
+router.get('/shorten/:url', function(req, res) {
+  bitly.shorten("http://"+req.params.url) // considered invalid uri without 'http'
+  .then(function(response) {
+    var shortUrl = response.data.url; 
+    res.json({
+      shortUrl: shortUrl
+    });
+  }, function(error) {
+    throw error;
+  });
 })
 
 router.post('/upload', function(req, res) {
@@ -42,8 +66,8 @@ router.post('/upload', function(req, res) {
       return;
     } 
   
-    var accountName = "meatface";
-    var accountKey = "bdpfrGoxtdyFuCJ9pbFASg6EO3ZUpAjOzzaOvyi8VJkxN1Jk4uM/ytBq++euVpplK9CuvazzIPu8GxChsBOEdg==";
+    var accountName = STORAGE_ACCOUNT_NAME;
+    var accountKey = STORAGE_ACCOUNT_KEY;
     var host = accountName + '.blob.core.windows.net';
     var container = 'meatface';
     

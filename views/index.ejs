@@ -5,34 +5,32 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link href="stylesheets/style.css" rel="stylesheet">
+    <script>
+      // Load the Facebook SDK asynchronously
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
   </head>
-  <script>
-
-    // Load the Facebook SDK asynchronously
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/all.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
-  </script>
     
-  <!-- jquery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <!-- bootstrap library -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <!-- async library -->
-  <script src="javascripts/async.min.js"></script>
-  <!-- My .js Files -->
-  <script src="javascripts/util.js"></script>
-  <script src="javascripts/facebook.js"></script>
-  <script src="javascripts/meat_image.js"></script>
-  <script src="javascripts/face.js"></script>
-
-  
   <body>
+    <!-- jquery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <!-- bootstrap library -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- async library -->
+    <script src="javascripts/async.min.js"></script>
+    <!-- My .js Files -->
+    <script src="javascripts/util.js"></script>
+    <script src="javascripts/facebook.js"></script>
+    <script src="javascripts/twitter.js"></script>
+    <script src="javascripts/meat_image.js"></script>
+    <script src="javascripts/face.js"></script>
+  
     <!-- this is used in the Util module for the getImageFromUrl function-->
     <img style="display:none" src="" id="imageUrl">
                 
@@ -139,7 +137,7 @@
             <div class="sc-share-button" id="fb-share">
               <i class="fa fa-facebook" aria-hidden="true"></i>
             </div> 
-            <div class="sc-share-button">
+            <div class="sc-share-button" id="twitter-share">
               <i class="fa fa-twitter" aria-hidden="true"></i>
             </div> 
           </div>
@@ -215,15 +213,17 @@
     </div>
     
     <div class="sc-footer h3">
-      <div class="sc-footer-left">
-        <a href="">F . A . Q</a>
-      </div>
-      <div class="sc-footer-right">
-        <div
-          class="fb-like"
-          data-share="true"
-          data-width="200"
-          data-show-faces="false">
+      <div class="row">
+        <div class="sc-footer-left col-xs-6">
+          <a href="/faq">F . A . Q</a>
+        </div>
+        <div class="sc-footer-right col-xs-6">
+          <div
+            class="fb-like"
+            data-share="true"
+            data-width="200"
+            data-show-faces="false">
+          </div>
         </div>
       </div>
     </div>

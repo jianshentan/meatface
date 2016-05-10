@@ -250,6 +250,9 @@ label.sc-upload-label input[type="file"] {
 .sc-share-button.active#fb-share{
   background-color: #3b5998;
 }
+.sc-share-button.active#twitter-share{
+  background-color: #0084b4;
+}
 .sc-share-button #twitter-share.active {
   background-color: #55acee;
 }
@@ -367,7 +370,6 @@ label.sc-upload-label input[type="file"] {
   margin: 0px;
 }
 .sc-footer-left {
-  float: left;
   text-align: left;
 }
 .sc-footer-right {
@@ -379,15 +381,18 @@ label.sc-upload-label input[type="file"] {
    =========================== */
 
 .sc-faq {
-  background-color: #2ff1ee;
+  background-color: #ea0047;
   background-image: url('/images/bg_tile.png');
   background-repeat: repeat;
   background-size: 100px; 
   min-height: 100vh;
   padding-top: 48px;
+  padding-bottom: 48px;
+  color: #444;
 }
 .sc-faq-container {
-  padding: 24px 24px;
+  padding: 24px 36px;
+  width: 90vw;
   max-width: 800px;
   border: 6px solid #ea0047;
   background-color: white;

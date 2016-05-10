@@ -123,6 +123,7 @@ MeatImage.prototype = {
           Util.showDownloadButton();
           Util.showUploadButton();  
           updateFbShare(url);
+          updateTwitterShare(url);
         } else {
           Util.handleError(err);
         }

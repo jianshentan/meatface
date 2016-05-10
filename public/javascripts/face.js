@@ -258,8 +258,6 @@ Face.prototype = {
       ctx.fillStyle = "red";
       ctx.fillText("#morethanmeat", 10, CANVAS_HEIGHT - 10);
       
-      console.log( "text" );
-      
       cb();
    }
   
