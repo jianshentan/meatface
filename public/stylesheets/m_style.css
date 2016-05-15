@@ -1,0 +1,87 @@
+body {
+  font-size: 3vw;
+}
+.h1 {
+  font-size: 9vw;
+  line-height: 12vw;
+}
+.h2 {
+  font-size: 7vw;
+  line-height: 9vw;
+}
+.h3 {
+  font-size: 5vw;
+  line-height: 7vw;
+}
+.h4 {
+  font-size: 3vw;
+  line-height: 4vw;
+}
+.sc-intro-left {
+  background-size: 25vw;
+  background-image: none;
+  margin-top: 100vh;
+  height: 70vh;
+}
+.sc-banner {
+  color: #333;
+}
+.sc-intro-right {
+  background-color: white;
+  background-image: url('/images/bg_tile.png');
+  background-repeat: repeat;
+  background-size: 50vw;
+  position: fixed;
+  z-index: -10;
+}
+.sc-intro-right .sc-banner .h1 {
+  text-shadow: 8px 8px white;
+}
+.sc-intro-right .sc-banner .h3 {
+  text-shadow: 4px 4px white;
+}
+.sc-device {
+  width: 90vw;
+  height: 112vw;
+  padding: 5vw;
+  box-shadow: 0vw 0vw 0 #ea0047;
+}
+.sc-camera img {
+  width: 25vw;
+}
+.sc-canvas-wrapper {
+  width: 80vw;
+  height: 80vw;
+}
+.sc-canvas {
+  width: 80vw;
+  height: 80vw;
+}
+.sc-load-image {
+  width: 34vw;
+  height: 12vw;
+  font-size: 4vw;
+  top: 3vw;
+  left: 3vw;
+}
+.sc-download {
+  border-radius: 12vw;
+  top: 3vw;
+  right: 3vw;
+  height: 12vw;
+  width: 12vw;
+  line-height: 12vw;
+  font-size: 5vw;
+}
+.sc-share-button {
+  border-radius: 20vw;
+  height: 20vw;
+  line-height: 16vw;
+  width: 20vw;
+  border: 2vw solid #ccc;
+  margin: 3vw;
+  font-size: 8vw;
+}
+.sc-share-button.active {
+  border: 2vw solid #2ff1ee;
+}

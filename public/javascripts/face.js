@@ -254,9 +254,10 @@ Face.prototype = {
    },
    
    addHashtag: function(cb) {
-      ctx.font = "20px Helvetica";
+      var fontSize = CANVAS_WIDTH * 20/360; 
+      ctx.font = fontSize + "px Helvetica";
       ctx.fillStyle = "red";
-      ctx.fillText("#morethanmeat", 10, CANVAS_HEIGHT - 10);
+      ctx.fillText("#morethanmeat", fontSize/2, CANVAS_HEIGHT - fontSize/2);
       
       cb();
    }

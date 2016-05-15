@@ -16,20 +16,35 @@ var imageCacheQueue= [];
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('gate', { access: "false" });
+  if (req.mobile == true) {
+    res.render('gate', { access: "na", mobile: "true" });
+  } else {
+    res.render('gate', { access: "na", mobile: "false" });
+  }
 });
 
 router.post('/', function(req, res, next) {
-  console.log(PRIVATE_PREVIEW_PASSWORD);
   if (req.body.password == PRIVATE_PREVIEW_PASSWORD) {
-    res.render('index');
+    if (req.mobile == true) {
+      res.render('index', { mobile: "true" });
+    } else {
+      res.render('index', { mobile: "false" });
+    }
   } else {
-    res.render('gate', { access: "denied" });
+    if (req.mobile == true) {
+      res.render('gate', { access: "denied", mobile: "true" });
+    } else {
+      res.render('gate', { access: "denied", mobile: "false" });
+    }
   }
 });
 
 router.get('/faq', function(req, res, next) {
-  res.render('faq');
+  if (req.mobile == true) {
+    res.render('faq', { mobile: "true" });
+  } else {
+    res.render('faq', { mobile: "false" });
+  }
 });
 
 router.get('/shorten/:url', function(req, res) {

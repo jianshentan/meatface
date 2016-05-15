@@ -5,6 +5,10 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link href="stylesheets/style.css" rel="stylesheet">
+    <% if (mobile == "true") { %>
+      <link href="stylesheets/m_style.css" rel="stylesheet">
+    <% } %>
+    
     <script>
       // Load the Facebook SDK asynchronously
       (function(d, s, id) {
@@ -14,6 +18,11 @@
         js.src = "//connect.facebook.net/en_US/all.js";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
+      
+      // TODO may not be working
+      <% if (mobile == "true") { %>
+      var mobile = true;
+      <% } %>
     </script>
   </head>
     

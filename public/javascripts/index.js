@@ -2,9 +2,26 @@
    CONSTANTS 
    ============================= */
 
-var CANVAS_WIDTH = 360;
-var CANVAS_HEIGHT = 360;
+var CANVAS_WIDTH = $(".sc-canvas").width();
+var CANVAS_HEIGHT = $(".sc-canvas").height();
+
+/* =============================
+   MOBILE 
+   ============================= */
    
+if (mobile) {
+  $(window).scroll(function() {
+    var scrollTop = $(window).scrollTop();
+    if (scrollTop >= $(".sc-device").offset().top) {
+      $(".sc-intro-right .sc-banner").hide();  
+    } else {
+      $(".sc-intro-right .sc-banner").show();  
+    }  
+    console.log(scrollTop);
+    console.log($(".sc-device").offset().top);
+  });
+}
+  
 /* =============================
    Entry 
    ============================= */
@@ -119,5 +136,5 @@ function handleWebcamImage(e) {
   	video.src = window.URL.createObjectURL(stream);
   }
   
- 
 }
+

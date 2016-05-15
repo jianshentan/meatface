@@ -89,10 +89,13 @@ var Util = {
     } else {
       alert("Errored. Please try again.");
     }
+    window.location.reload();
     
+    /*
     Util.loading(false);
     Util.showDownloadButton();
     Util.showUploadButton();
+    */
   },
   
   loading: function(flag, cb) {
@@ -103,7 +106,6 @@ var Util = {
     }
   },
   
-  /* TODO: not working */
   uploadImage: function(cb) {
     bgCtx.drawImage(canvas, 0, 0);
     var dt = bgCanvas.toDataURL('image/png');
