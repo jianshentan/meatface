@@ -4,6 +4,7 @@
     <!--<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" ref="stylesheet">-->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
     <link href="stylesheets/style.css" rel="stylesheet">
     <% if (mobile == "true") { %>
       <link href="stylesheets/m_style.css" rel="stylesheet">
@@ -19,10 +20,10 @@
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
       
-      // TODO may not be working
       <% if (mobile == "true") { %>
       var mobile = true;
       <% } %>
+      
     </script>
   </head>
     
@@ -110,7 +111,12 @@
       
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 
         sc-intro-left sc-intro">
+        
+        <% if (mobile == "true") { %>
+        <div class="sc-device">
+        <% } else { %>
         <div class="sc-absolute-center sc-device">
+        <% } %>
           
           <div id="loading-screen" class="sc-loading-screen">
             <div class="sc-loading-screen-text">loading...</div>
@@ -262,7 +268,9 @@
     
     <div class="sc-footer h3">
       <% if (mobile == "true") { %>
-      <div class="sc-faq-wrapper"><a href="/faq">F . A . Q</a></div> 
+      <div class="sc-faq-wrapper">
+        <a href="/faq">F . A . Q</a>
+      </div> 
       <hr>
       <div class="sc-fb-like-wrapper">
         <div

@@ -85,6 +85,16 @@ body {
 .sc-share-button.active {
   border: 2vw solid #2ff1ee;
 }
+.sc-intro,
+.sc-intro-left {
+  height: inherit;
+}
+.sc-intro-right {
+  height: 100vh;
+}
+.sc-device {
+  margin: 5vw auto;
+}
 .sc-body-maker {
   height: auto;
 }
