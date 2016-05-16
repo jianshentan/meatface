@@ -34,10 +34,10 @@ body {
   position: fixed;
   z-index: -10;
 }
-.sc-intro-right .sc-banner .h1 {
+.sc-banner .h1 {
   text-shadow: 8px 8px white;
 }
-.sc-intro-right .sc-banner .h3 {
+.sc-banner .h3 {
   text-shadow: 4px 4px white;
 }
 .sc-device {
@@ -84,4 +84,28 @@ body {
 }
 .sc-share-button.active {
   border: 2vw solid #2ff1ee;
+}
+.sc-body-maker {
+  height: auto;
+}
+.sc-maker-logo-wrapper {
+  width: 100vw;
+  text-align: center;
+}
+.sc-maker-logo {
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  width: 24vw;
+  height: 24vw;
+  border-radius: 24vw;
+}
+.sc-maker-desc {
+  width: 80vw;
+  margin-left: 10vw;
+  padding: 3vw;
+}
+.sc-faq-wrapper,
+.sc-fb-like-wrapper {
+  width: 100%;
+  text-align: center;
 }

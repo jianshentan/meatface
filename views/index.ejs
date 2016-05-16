@@ -170,13 +170,33 @@
         </div>
       </div>
       
+      <% if (mobile == "true") { %>
+       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 
+        sc-body-left">
+      <% } else { %>
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 
-        sc-body-right sc-body">
-        
-        <div class="sc-body-right-top">
+        sc-body-left sc-body">
+      <% } %> 
+        <div class="sc-body-right-top sc-body-maker">
           <!--<div class="sc-tag sc-tag-siren">
             1. MEAT THE MAKER
           </div>-->
+          <% if (mobile == "true") { %>
+          <br>
+          <div class="">
+            <div class="sc-maker-logo-wrapper">
+              <img src="images/siren_logo.png" class="sc-maker-logo sc-maker-logo-siren" /> 
+            </div>
+            <div class="sc-maker-desc sc-maker-desc-siren">
+              <div class="h3">Siren</div> 
+              <div class="h4">
+                The only time people should look at you like a piece of meat is if you choose it.
+              </div>
+            </div>  
+          </div>
+          <br>
+          <br>
+          <% } else { %>
           <div class="sc-absolute-center sc-maker-wrapper">
             <div class="row">
               <div class="col-xs-3 center">
@@ -194,12 +214,30 @@
               </div>
             </div>
           </div>
+          <% } %>
+                
         </div>
         
-        <div class="sc-body-right-bottom">
+        <div class="sc-body-right-bottom sc-body-maker">
           <!--<div class="sc-tag sc-tag-hv">
             2. MEAT THE MAKER
           </div>-->
+          <% if (mobile == "true") { %>
+          <br>
+          <div class="">
+            <div class="sc-maker-logo-wrapper">
+              <img src="images/hv_logo.png" class="sc-maker-logo sc-maker-logo-hv" /> 
+            </div>
+            <div class="sc-maker-desc sc-maker-desc-hv">
+              <div class="h3">Hello Velocity</div> 
+              <div class="h4">
+                The only time people should look at you like a piece of meat is if you choose it.
+              </div>
+            </div>  
+          </div>
+          <br>
+          <br>
+          <% } else { %>
           <div class="sc-absolute-center sc-maker-wrapper">
             <div class="row">
               <div class="col-xs-3 center">
@@ -217,11 +255,24 @@
               </div>
             </div>
           </div>
+          <% } %>
         </div>
       </div>
     </div>
     
     <div class="sc-footer h3">
+      <% if (mobile == "true") { %>
+      <div class="sc-faq-wrapper"><a href="/faq">F . A . Q</a></div> 
+      <hr>
+      <div class="sc-fb-like-wrapper">
+        <div
+            class="fb-like"
+            data-share="true"
+            data-width="200"
+            data-show-faces="false">
+          </div>
+      </div>
+      <% } else { %>
       <div class="row">
         <div class="sc-footer-left col-xs-6">
           <a href="/faq">F . A . Q</a>
@@ -235,6 +286,7 @@
           </div>
         </div>
       </div>
+      <% } %>
     </div>
   </body>
 
