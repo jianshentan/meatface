@@ -17,8 +17,6 @@ if (mobile) {
     } else {
       $(".sc-intro-right .sc-banner").show();  
     }  
-    console.log(scrollTop);
-    console.log($(".sc-device").offset().top);
   });
 }
   
@@ -30,20 +28,23 @@ if (mobile) {
 var imageLoader = document.getElementById('loader');
 imageLoader.addEventListener('change', handleImage, false);
 
-var urlImageLoader = document.getElementById('urlLoader');
-urlImageLoader.addEventListener('click', handleUrlImage, false);
-
 var fbImageLoader = document.getElementById('fbLoader');
 fbImageLoader.addEventListener('click', handleFbImage, false);
 
-var webcamImageLoader = document.getElementById('webcamLoader');
-webcamImageLoader.addEventListener('click', handleWebcamImage, false);
+if (!mobile) {
+  var urlImageLoader = document.getElementById('urlLoader');
+  urlImageLoader.addEventListener('click', handleUrlImage, false);
 
+  var webcamImageLoader = document.getElementById('webcamLoader');
+  webcamImageLoader.addEventListener('click', handleWebcamImage, false);
+}
    
 var canvas = document.getElementById('canvas-front');
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
 var ctx = canvas.getContext('2d');
+console.log("1");
+console.log(ctx);
 
 var bgCanvas = document.getElementById('canvas-back');
 bgCanvas.width = CANVAS_WIDTH;

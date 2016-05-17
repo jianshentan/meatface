@@ -38,6 +38,7 @@ MeatImage.prototype = {
  
   renderImage: function() {
     
+    console.log(ctx);
     // dynamically crop image to fit in canvas 
     
     // if img is portrait

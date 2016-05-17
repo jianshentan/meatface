@@ -63,6 +63,7 @@ body {
   font-size: 4vw;
   top: 3vw;
   left: 3vw;
+  background-color: rgba(234,0,71,1.0);
 }
 .sc-download {
   border-radius: 12vw;
@@ -114,8 +115,84 @@ body {
   margin-left: 10vw;
   padding: 3vw;
 }
+.sc-maker-desc-hv {
+  box-shadow: 2vw 2vw 0px rgba(0, 0, 0, 0.4);
+}
+.sc-maker-desc-siren {
+  box-shadow: 2vw 2vw 0px white;
+  border: 1vw solid #ea0047;
+}
 .sc-faq-wrapper,
 .sc-fb-like-wrapper {
   width: 100%;
   text-align: center;
+}
+.sc-faq-wrapper {
+  border: 1vw solid #ea0047;
+  padding: 3vw;
+}
+.sc-faq-wrapper a {
+  color: #ea0047;
+}
+.modal-dialog {
+  width: 100vw;
+  margin-top: 0px;
+}
+.modal-header {
+  height: 10vh;
+  padding: 0px;
+}
+.modal-header button {
+  font-size: 10vw;
+  line-height: 15vw;
+  padding-right: 5vw;
+}
+.modal-title {
+  font-size: 6vw;
+  line-height: 10vh;
+  padding-left: 5vw;
+}
+.modal-body {
+  padding: 0px;
+  font-size: 4vw;
+}
+.modal-body hr {
+  height: 0.5vw;
+  background-color: #ea0047;
+}
+.sc-fb-wrapper {
+  padding-top: 5vw;
+  padding-bottom: 5vw;
+}
+.sc-upload-label span {
+  width: 80vw !important;
+  margin: 5vw;
+  height: 12vw;
+  line-height: 12vw;
+  font-size: 4vw;
+  border: 0.5vw solid #ea0047;
+  padding: 0px;
+}
+.fb_iframe_widget_fluid span {
+  vertical-align: top ;
+}
+.sc-fb-profile-picture-options {
+  width: 80vw;
+  height: 16vw;
+}
+.sc-fb-profile-picture-option {
+  width: 16vw;
+  height: 16vw;
+}
+.sc-fb-profile-picture {
+  width: 80vw;
+  height: 80vw;
+}
+.sc-fb-profile-picture-submit {
+  width: 50vw;
+  height: 10vw;
+  font-size: 4vw;
+  color: #ea0047;
+  background: white;
+  margin-bottom: 4vw; 
 }

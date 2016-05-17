@@ -22,6 +22,8 @@
       
       <% if (mobile == "true") { %>
       var mobile = true;
+      <% } else { %>
+      var mobile = false;
       <% } %>
       
     </script>
@@ -54,6 +56,12 @@
           </div>
           <div class="modal-body">
             
+            <% if (mobile == "true") { %>
+            <label class="sc-upload-label">
+              <input class="inline-block" type="file" id="loader" class="btn btn-default sc-loader" >
+              <span style="width:120px;" class="btn btn-default">Upload File</span>
+            </label>
+            <% } else { %>
             <div class="row">
               <div class="col-xs-6">
                 <input type="button" style="width:120px;" class="btn btn-default" id="webcamLoader" value="Use Webcam">
@@ -65,23 +73,27 @@
                 </label>
               </div>
             </div>
-           
-            <hr>
-            
-            <div class="inline-block">Upload from Facebook:</div>
-            <div class="sc-fb-button inline-block">
-              <fb:login-button scope="public_profile, user_photos" onlogin="checkLoginState();">
-              </fb:login-button>
-              <span id="status"></span>
-            </div>
-            <div class="sc-fb-profile-pictures">
-              <div class="sc-fb-profile-picture-options"></div>
-              <img class="sc-fb-profile-picture" src="">
-              <input id="fbLoader" class="sc-fb-profile-picture-submit btn btn-default" type="button" value="Submit"/>
-            </div>
+            <% } %>
             
             <hr>
             
+            <div class="sc-fb-wrapper">
+              <div class="inline-block">Upload from Facebook:</div>
+              <div class="sc-fb-button inline-block">
+                <fb:login-button <% if (mobile == "true") { %>data-size="xlarge"<% } %> scope="public_profile, user_photos" onlogin="checkLoginState();">
+                </fb:login-button>
+                <span id="status"></span>
+              </div>
+              <div class="sc-fb-profile-pictures">
+                <div class="sc-fb-profile-picture-options"></div>
+                <img class="sc-fb-profile-picture" src="">
+                <input id="fbLoader" class="sc-fb-profile-picture-submit btn btn-default" type="button" value="Submit"/>
+              </div>
+            </div>
+            
+            <% if (mobile == "true") { %>
+            <% } else { %>
+            <hr>
             <div class="row">
               <div class="col-xs-8">
                 <input type="text" class="form-control sc-urlLoaderInput" id="inputKey" placeholder="URL Link to image" style="margin-right:12px;">
@@ -91,6 +103,7 @@
                 <input id="urlLoader" type="button" class="btn btn-default" value="Submit"/>
               </div>
             </div>
+            <% } %>
             
           </div>
         </div>
@@ -271,7 +284,6 @@
       <div class="sc-faq-wrapper">
         <a href="/faq">F . A . Q</a>
       </div> 
-      <hr>
       <div class="sc-fb-like-wrapper">
         <div
             class="fb-like"

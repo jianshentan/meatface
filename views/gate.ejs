@@ -36,8 +36,27 @@
       }
       /* TODO this is not wokring */
       <% if (mobile == "true") { %>
+      body {
+        font-size: 5vw;
+      }
       .content {
         width: 90vw;
+      }
+      input {
+        height: 8vw;
+        width: 45vw;
+        padding-left: 1vw;
+        padding-right: 1vw;
+      }
+      button {
+        height: 9vw;
+        width: 25vw;
+      }
+      button, input {
+        vertical-align: top;
+        font-size: 5vw;
+        line-height: 5vw;
+        border: 0.5vw solid white;
       }
       <% } %>
     </style>
