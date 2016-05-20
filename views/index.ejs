@@ -132,7 +132,7 @@
         <% } %>
           
           <div id="loading-screen" class="sc-loading-screen">
-            <div class="sc-loading-screen-text">loading...</div>
+            <img class="sc-loading-screen-icon" src="images/loading.gif">
           </div>         
           
           <!-- Canvas -->
@@ -148,8 +148,10 @@
             <canvas id="canvas-back" class="sc-canvas"></canvas>
             <canvas id="canvas-front" class="sc-canvas"></canvas>
             
+            <% if (mobile != "true") { %>
             <video autoplay="true" id="video-stream" class="sc-video-stream" style="display:none"></video>
             <button type="button" class="sc-take-picture">Take Picture</button>
+            <% } %>
             
             <a id="download-canvas" download="Canvas.png" href="#" 
               style="display: none;">
@@ -287,6 +289,8 @@
       <div class="sc-fb-like-wrapper">
         <div
             class="fb-like"
+            data-layout="button"
+            data-action="like"
             data-share="true"
             data-width="200"
             data-show-faces="false">
@@ -300,6 +304,8 @@
         <div class="sc-footer-right col-xs-6">
           <div
             class="fb-like"
+            data-layout="button"
+            data-action="like"
             data-share="true"
             data-width="200"
             data-show-faces="false">
@@ -307,6 +313,12 @@
         </div>
       </div>
       <% } %>
+      <style>
+        .fb-like{
+          height: 30px;
+          overflow: hidden;
+        }
+      </style>
     </div>
   </body>
 

@@ -14,6 +14,7 @@ function MeatImage(src) {
   //load img to get img data
   var meatImage = this;
   this.img.onload = function() {
+    console.log("image onload");
     meatImage.width = meatImage.img.width;
     meatImage.height = meatImage.img.height;
     meatImage.renderImage();
@@ -37,8 +38,6 @@ MeatImage.prototype = {
   },
  
   renderImage: function() {
-    
-    console.log(ctx);
     // dynamically crop image to fit in canvas 
     
     // if img is portrait

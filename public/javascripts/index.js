@@ -43,8 +43,6 @@ var canvas = document.getElementById('canvas-front');
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
 var ctx = canvas.getContext('2d');
-console.log("1");
-console.log(ctx);
 
 var bgCanvas = document.getElementById('canvas-back');
 bgCanvas.width = CANVAS_WIDTH;
@@ -58,7 +56,7 @@ document.getElementById("download-canvas")
 // handler for image-upload from local
 function handleImage(e){
   var reader = new FileReader();
-  reader.onload = function(event){
+  reader.onloaded = function(event){
     new MeatImage(event.target.result);
     $(".sc-camera").hide();
     $(".uploadModal").modal('hide');
@@ -111,6 +109,14 @@ function handleWebcamImage(e) {
   takePictureButton.click(function(){ 
     canvas.width = 360;
     canvas.height = 360;
+     
+    /*
+    ctx.translate(480, 0);
+    ctx.scale(-1, 1);
+    bgCtx.translate(480, 0);
+    bgCtx.scale(-1, 1);   
+    */
+   
     ctx.drawImage(video, 0, 0, 480, 480, 0, 0, 360, 360);
     
     new MeatImage(canvas.toDataURL());
@@ -119,18 +125,26 @@ function handleWebcamImage(e) {
   });
   
   var video = document.querySelector("#video-stream");
-  navigator.getUserMedia = 
+  /*
+  video.style.cssText = "-moz-transform: scale(-1, 1); \
+    -webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); \
+    transform: scale(-1, 1); filter: FlipH;";
+    */
+    
+  navigator.getUserMedia = (
     navigator.getUserMedia || 
     navigator.webkitGetUserMedia || 
     navigator.mozGetUserMedia || 
     navigator.msGetUserMedia || 
-    navigator.oGetUserMedia;
+    navigator.oGetUserMedia);
   
   if (navigator.getUserMedia) {       
   	navigator.getUserMedia({
   	  audio: false,
   	  video: true
   	}, handleVideo, Util.handleError);
+  } else {
+    Util.handleError("The webcam is not supported on your broswer, please try it on Chrome!");
   }
   
   function handleVideo(stream) {

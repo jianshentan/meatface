@@ -85,6 +85,7 @@ var Util = {
   
   handleError: function(str) {
     if (str) {
+      console.dir(str);
       alert(str);
     } else {
       alert("Errored. Please try again.");
@@ -100,7 +101,7 @@ var Util = {
   
   loading: function(flag, cb) {
     if (flag) {
-      $("#loading-screen").slideDown();
+      $("#loading-screen").show();
     } else {
       $("#loading-screen").slideUp();    
     }

@@ -2,13 +2,24 @@
 /* =============================
    Face Class
    ============================= */
+   
+var meatSrcList = [{
+    src: "../images/meat1.png",
+    type: "steak",
+  }, {
+    src: "../images/meat2.png",
+    type: "chicken"
+  }, {
+    src: "../images/meat3.png", 
+    type: "tuna"
+  }, {
+    src: "../images/meat4.png",
+    type: "tofu"
+  }];
 
 function Face(data, meatImage) {
    this.meatImage = meatImage;
-   this.meat = {
-      src: "../images/meat.png",
-      type: "steak",
-   };
+   this.meat = meatSrcList[Math.floor(Math.random() * meatSrcList.length)];
     
    // FACE 
    this.faceWidth = data.faceRectangle.width;
