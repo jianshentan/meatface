@@ -11,6 +11,9 @@
     <% } %>
     
     <script>
+      if (window.location.protocol != "https:") {
+        window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+      }
       // Load the Facebook SDK asynchronously
       (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
