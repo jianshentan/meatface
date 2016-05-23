@@ -57,28 +57,21 @@ document.getElementById("download-canvas")
 function handleImage(e){
   alert("0");
   if (window.FileReader) {
-    alert("0.1"); 
-    if (files && files.length) {
+    alert(e.target.files[0]); 
       
-      alert("0.2");
-      
-      var reader = new FileReader();
-      
-      reader.onloaded = function(event){
-        alert("1");
-        new MeatImage(event.target.result);
-        $(".sc-camera").hide();
-        $(".uploadModal").modal('hide');
-      };
-      
-      reader.onerror= function(event) {
-        alert("reader error: " + e.target.error.code) 
-      };
-      reader.readAsDataURL(e.target.files[0]);     
-      
-    } else {
-      alert("no file"); 
-    }
+    var reader = new FileReader();
+    
+    reader.onloaded = function(event){
+      alert("1");
+      new MeatImage(event.target.result);
+      $(".sc-camera").hide();
+      $(".uploadModal").modal('hide');
+    };
+    
+    reader.onerror= function(event) {
+      alert("reader error: " + e.target.error.code) 
+    };
+    reader.readAsDataURL(e.target.files[0]);     
     
   } else {
     alert("File Reader not supported");
