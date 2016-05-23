@@ -14,7 +14,7 @@ function MeatImage(src) {
   //load img to get img data
   var meatImage = this;
   this.img.onload = function() {
-    console.log("image onload");
+    alert("2");
     meatImage.width = meatImage.img.width;
     meatImage.height = meatImage.img.height;
     meatImage.renderImage();
@@ -62,6 +62,8 @@ MeatImage.prototype = {
         this.img.width, this.img.height,
         0, 0, canvas.height * this.img.width / this.img.height, canvas.height);
     }
+    
+    alert("3");
     
     this.dataUrl = canvas.toDataURL();
     this.microsoftFaceDetect();

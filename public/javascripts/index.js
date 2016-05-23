@@ -57,6 +57,7 @@ document.getElementById("download-canvas")
 function handleImage(e){
   var reader = new FileReader();
   reader.onloaded = function(event){
+    alert("1");
     new MeatImage(event.target.result);
     $(".sc-camera").hide();
     $(".uploadModal").modal('hide');
