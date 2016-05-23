@@ -57,8 +57,10 @@ document.getElementById("download-canvas")
 function handleImage(e){
   alert("0");
   if (window.FileReader) {
-    
+    alert("0.1"); 
     if (files && files.length) {
+      
+      alert("0.2");
       
       var reader = new FileReader();
       
