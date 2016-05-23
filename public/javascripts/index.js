@@ -56,14 +56,31 @@ document.getElementById("download-canvas")
 // handler for image-upload from local
 function handleImage(e){
   alert("0");
-  var reader = new FileReader();
-  reader.onloaded = function(event){
-    alert("1");
-    new MeatImage(event.target.result);
-    $(".sc-camera").hide();
-    $(".uploadModal").modal('hide');
-  };
-  reader.readAsDataURL(e.target.files[0]);     
+  if (window.FileReader) {
+    
+    if (files && files.length) {
+      
+      var reader = new FileReader();
+      
+      reader.onloaded = function(event){
+        alert("1");
+        new MeatImage(event.target.result);
+        $(".sc-camera").hide();
+        $(".uploadModal").modal('hide');
+      };
+      
+      reader.onerror= function(event) {
+        alert("reader error: " + e.target.error.code) 
+      };
+      reader.readAsDataURL(e.target.files[0]);     
+      
+    } else {
+      alert("no file"); 
+    }
+    
+  } else {
+    alert("File Reader not supported");
+  }
 }
 
 // handler for image-upload from URL
