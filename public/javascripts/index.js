@@ -55,6 +55,7 @@ document.getElementById("download-canvas")
 
 // handler for image-upload from local
 function handleImage(e){
+  alert("0");
   var reader = new FileReader();
   reader.onloaded = function(event){
     alert("1");
