@@ -67,6 +67,7 @@ MeatImage.prototype = {
       
     this.dataUrl = canvas.toDataURL();
     this.microsoftFaceDetect();
+    console.log(this.dataUrl);
     //this.printObject();
   },
   
