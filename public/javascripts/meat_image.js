@@ -15,6 +15,7 @@ function MeatImage(src) {
   var meatImage = this;
   this.img.onload = function() {
     alert("2");
+    alert(meatImage.img.width);
     meatImage.width = meatImage.img.width;
     meatImage.height = meatImage.img.height;
     meatImage.renderImage();
@@ -64,10 +65,11 @@ MeatImage.prototype = {
     }
     
     alert("3");
+    alert(this.dataUrl);
     
     this.dataUrl = canvas.toDataURL();
     this.microsoftFaceDetect();
-    //this.printObject();
+    this.printObject();
   },
   
   microsoftFaceDetect: function() {
