@@ -3,9 +3,6 @@
    ============================= */
  
 function MeatImage(src) {
-  console.log("Src: " );
-  console.log(src);
-  
   this.dataUrl = null;
   this.width = null;
   this.height = null;
@@ -33,8 +30,6 @@ MeatImage.prototype = {
   
   // dev only
   printObject: function() {
-    console.log(this.width);
-    console.log(this.height);
     console.log(this.dataUrl);
     console.log(this.getBinaryImage());
   },
@@ -67,7 +62,6 @@ MeatImage.prototype = {
       
     this.dataUrl = canvas.toDataURL();
     this.microsoftFaceDetect();
-    console.log(this.dataUrl);
     //this.printObject();
   },
   
@@ -81,6 +75,8 @@ MeatImage.prototype = {
     };
     
     var meatImage = this;
+    console.log("meat image:");
+    console.dir(meatImage);
     $.ajax({
       url: url + $.param(params),
       beforeSend: function(xhrObj){

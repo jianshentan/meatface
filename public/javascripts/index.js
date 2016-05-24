@@ -63,8 +63,6 @@ function handleImage(e){
       mpImg.render(frontCanvas, { width: 500, height: 500 });
       var mpImgDataURL = frontCanvas.toDataURL();
       
-      alert(mpImgDataURL);
-      
       new MeatImage(mpImgDataURL);
       $(".sc-camera").hide();
       $(".uploadModal").modal('hide');
@@ -74,7 +72,6 @@ function handleImage(e){
       
       reader.onload = function(event){
         new MeatImage(event.target.result);
-        console.log(event.target.result);
         $(".sc-camera").hide();
         $(".uploadModal").modal('hide');
       };
