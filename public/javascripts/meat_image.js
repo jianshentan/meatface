@@ -3,6 +3,9 @@
    ============================= */
  
 function MeatImage(src) {
+  console.log("Src: " );
+  console.log(src);
+  
   this.dataUrl = null;
   this.width = null;
   this.height = null;
@@ -61,10 +64,10 @@ MeatImage.prototype = {
         this.img.width, this.img.height,
         0, 0, canvas.height * this.img.width / this.img.height, canvas.height);
     }
-    
+      
     this.dataUrl = canvas.toDataURL();
     this.microsoftFaceDetect();
-    this.printObject();
+    //this.printObject();
   },
   
   microsoftFaceDetect: function() {

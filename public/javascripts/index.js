@@ -49,7 +49,6 @@ bgCanvas.width = CANVAS_WIDTH;
 bgCanvas.height = CANVAS_HEIGHT;
 var bgCtx = bgCanvas.getContext('2d');
 
-
 document.getElementById("download-canvas")
   .addEventListener('click', Util.downloadCanvas, false);
 
@@ -57,20 +56,25 @@ document.getElementById("download-canvas")
 function handleImage(e){
   if (window.FileReader) {
     if (mobile) {
+      console.log("is mobile");
       var mpImg = new MegaPixImage(e.target.files[0]);  
-      var tempCanvas = document.createElement('tempCanvas');
-      mpImg.render(tempCanvas, { width: 400, height: 400 });
-      var mpImgData = tempCanvas.toDataURL("image/png");
+      var backCanvas = document.getElementById('canvas-back');
+      var frontCanvas = document.getElementById('canvas-front');
+      mpImg.render(backCanvas, { width: 640, height: 640 });
+      mpImg.render(frontCanvas, { width: 640, height: 640 });
+      var mpImgDataURL = frontCanvas.toDataURL("image/jpeg", 1);
       
-      new MeatImage(mpImgData);
+      new MeatImage(mpImgDataURL);
       $(".sc-camera").hide();
       $(".uploadModal").modal('hide');
       
     } else {
+      console.log("is desktop");
       var reader = new FileReader();
       
       reader.onload = function(event){
         new MeatImage(event.target.result);
+        console.log(event.target.result);
         $(".sc-camera").hide();
         $(".uploadModal").modal('hide');
       };

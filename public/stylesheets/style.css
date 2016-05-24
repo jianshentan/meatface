@@ -309,6 +309,9 @@ label.sc-upload-label input[type="file"] {
   bottom: 24px;
   border: 0px;
 }
+#megapix-canvas {
+  z-index: 2;
+}
 #canvas-front {
   z-index: 1;
 }
@@ -324,7 +327,7 @@ label.sc-upload-label input[type="file"] {
 .sc-loading-screen {
   display: none;
   width: 100%;
-  height: 100%;
+  height: 0%;
   background-color: #ddd;
   color: #ea0047;
   z-index: 200;
