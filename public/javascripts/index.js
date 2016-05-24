@@ -63,6 +63,8 @@ function handleImage(e){
       mpImg.render(frontCanvas, { width: 500, height: 500 });
       var mpImgDataURL = frontCanvas.toDataURL();
       
+      alert(mpImgDataURL);
+      
       new MeatImage(mpImgDataURL);
       $(".sc-camera").hide();
       $(".uploadModal").modal('hide');
