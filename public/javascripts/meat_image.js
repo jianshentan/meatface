@@ -76,7 +76,7 @@ MeatImage.prototype = {
     
     var meatImage = this;
     console.log("meat image:");
-    console.dir(meatImage);
+    console.dir(meatImage.getBinaryImage());
     $.ajax({
       url: url + $.param(params),
       beforeSend: function(xhrObj){
