@@ -102,6 +102,7 @@ label.sc-upload-label input[type="file"] {
 }
 .sc-intro {
   height: 100vh;
+  max-height: 900px;
 }  
 
 /* ===========================
@@ -142,6 +143,7 @@ label.sc-upload-label input[type="file"] {
 }
 .sc-body {
   height: 100vh;
+  max-height: 900px;
 }  
 .sc-maker-logo {
   width: 100px;
