@@ -96,6 +96,10 @@ body {
 .sc-device {
   margin: 5vw auto;
 }
+.sc-body,
+.sc-intro {
+  max-height: inherit;
+}
 .sc-body-maker {
   height: auto;
 }
