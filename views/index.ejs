@@ -91,7 +91,7 @@
               <% if (mobile != "true") { %> <br> <% } %>
               <br>
               <div class="sc-fb-button inline-block">
-                <fb:login-button <% if (mobile == "true") { %>data-size="xlarge"<% } %> scope="public_profile, user_photos" onlogin="checkLoginState();">
+                <fb:login-button <% if (mobile == "true") { %>data-size="xlarge"<% } %> scope="user_photos,public_profile" onlogin="checkLoginState();">
                 </fb:login-button>
                 <span id="status"></span>
               </div>
