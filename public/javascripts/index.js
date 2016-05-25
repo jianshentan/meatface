@@ -59,8 +59,8 @@ function handleImage(e){
       var mpImg = new MegaPixImage(e.target.files[0]);  
       var backCanvas = document.getElementById('canvas-back');
       var frontCanvas = document.getElementById('canvas-front');
-      mpImg.render(backCanvas, { width: 500, height: 500 });
-      mpImg.render(frontCanvas, { width: 500, height: 500 });
+      mpImg.render(backCanvas, { width: 500, height: 500, orientation: 6 });
+      mpImg.render(frontCanvas, { width: 500, height: 500, orientation: 6 });
       var mpImgDataURL = frontCanvas.toDataURL();
       
       new MeatImage(mpImgDataURL);
