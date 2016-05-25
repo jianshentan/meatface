@@ -98,7 +98,7 @@ body {
 }
 .sc-body,
 .sc-intro {
-  max-height: inherit;
+  max-height: inherit !important;
 }
 .sc-body-maker {
   height: auto;
