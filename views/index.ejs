@@ -64,10 +64,12 @@
           <div class="modal-body">
             
             <% if (mobile == "true") { %>
+            <!--
             <label class="sc-upload-label">
               <input class="inline-block" type="file" id="loader" class="btn btn-default sc-loader" >
               <span style="width:120px;" class="btn btn-default">Upload File</span>
             </label>
+            -->
             <% } else { %>
             <div class="row">
               <div class="col-xs-6">
@@ -80,12 +82,16 @@
                 </label>
               </div>
             </div>
+            <hr>
             <% } %>
             
-            <hr>
             
             <div class="sc-fb-wrapper">
               <div class="inline-block">Upload from Facebook:</div>
+              <% if (mobile != "true") { %>
+              <br>
+              <% } %>
+              <br>
               <div class="sc-fb-button inline-block">
                 <fb:login-button <% if (mobile == "true") { %>data-size="xlarge"<% } %> scope="public_profile, user_photos" onlogin="checkLoginState();">
                 </fb:login-button>
@@ -116,6 +122,20 @@
         </div>
       </div>
     </div>
+    
+    <% if (mobile == "true") { %>
+    <div class="sc-mobile-warning">
+      <div class="row">
+        <div class="col-xs-10">Use Chrome on desktop for the best experience.</div>
+        <div class="col-xs-2" id="close-mobile-warning"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span></div>
+      </div>
+    </div>
+    <script>
+      $("#close-mobile-warning").click(function() {
+        $(".sc-mobile-warning").slideUp();  
+      });
+    </script>
+    <% } %>
     
     <div class="row">
       
@@ -154,9 +174,6 @@
             
             <canvas id="canvas-back" class="sc-canvas"></canvas>
             <canvas id="canvas-front" class="sc-canvas"></canvas>
-            <% if (mobile == "true") { %>
-            <canvas id="megapix-canvas" class="sc-canvas" style="opacity:0"></canvas>
-            <% } %>
             
             <% if (mobile != "true") { %>
             <video autoplay="true" id="video-stream" class="sc-video-stream" style="display:none"></video>

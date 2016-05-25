@@ -54,33 +54,15 @@ document.getElementById("download-canvas")
 
 // handler for image-upload from local
 function handleImage(e){
-  if (window.FileReader) {
-    if (mobile) {
-      var mpImg = new MegaPixImage(e.target.files[0]);  
-      var backCanvas = document.getElementById('canvas-back');
-      var frontCanvas = document.getElementById('canvas-front');
-      mpImg.render(backCanvas, { width: 500, height: 500, orientation: 8 });
-      mpImg.render(frontCanvas, { width: 500, height: 500, orientation: 8 });
-      var mpImgDataURL = frontCanvas.toDataURL();
-      
-      new MeatImage(mpImgDataURL);
-      $(".sc-camera").hide();
-      $(".uploadModal").modal('hide');
-      
-    } else {
-      var reader = new FileReader();
-      
-      reader.onload = function(event){
-        new MeatImage(event.target.result);
-        $(".sc-camera").hide();
-        $(".uploadModal").modal('hide');
-      };
-     
-      reader.readAsDataURL(e.target.files[0]);     
-    }
-  } else {
-    alert("File Reader not supported");
-  }
+  var reader = new FileReader();
+  
+  reader.onload = function(event){
+    new MeatImage(event.target.result);
+    $(".sc-camera").hide();
+    $(".uploadModal").modal('hide');
+  };
+ 
+  reader.readAsDataURL(e.target.files[0]);     
 }
 
 // handler for image-upload from URL
