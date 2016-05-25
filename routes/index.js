@@ -2,6 +2,7 @@ var BITLY_ACCESS_TOKEN = process.env.BITLY_ACCESS_TOKEN;
 var STORAGE_ACCOUNT_KEY = process.env.STORAGE_ACCOUNT_KEY;
 var STORAGE_ACCOUNT_NAME = process.env.STORAGE_ACCOUNT_NAME;
 var PRIVATE_PREVIEW_PASSWORD = process.env.PRIVATE_PREVIEW_PASSWORD;
+var FACEBOOK_PREVIEW_PASSWORD = process.env.FACEBOOK_PREVIEW_PASSWORD;
 
 var express = require('express');
 var router = express.Router();
@@ -24,7 +25,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  if (req.body.password == PRIVATE_PREVIEW_PASSWORD) {
+  if (req.body.password == PRIVATE_PREVIEW_PASSWORD ||
+      req.body.password == FACEBOOK_PREVIEW_PASSWORD) {
     if (req.mobile == true) {
       res.render('index', { mobile: "true" });
     } else {
