@@ -49,6 +49,14 @@ router.get('/faq', function(req, res, next) {
   }
 });
 
+router.get('/privacy', function(req, res, next) {
+  if (req.mobile == true) {
+    res.render('privacy', { mobile: "true" });
+  } else {
+    res.render('privacy', { mobile: "false" });
+  }
+});
+
 router.get('/shorten/:url', function(req, res) {
   bitly.shorten("http://"+req.params.url) // considered invalid uri without 'http'
   .then(function(response) {
