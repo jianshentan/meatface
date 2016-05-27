@@ -69,6 +69,8 @@ function handleImage(e){
       loadImage.parseMetaData(mpImgDataURL, function(data) {
         if (data.exif) {
           ori = data.exif.get('Orientation');
+          console.log("ori");
+          console.log(ori);
         }
         var loadingImage = loadImage(
           mpImgDataURL,
