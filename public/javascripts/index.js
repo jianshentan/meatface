@@ -76,8 +76,19 @@ function handleImage(e){
           mpImgDataURL,
           function(img) {
             // where to add image to
-            document.getElementById('canvas-back');
-            document.getElementById('canvas-front');
+            $(".sc-canvas-wrapper").remove("#canvas-back");
+            $(".sc-canvas-wrapper").remove("#canvas-front");
+            
+            img.setAttribute("class", "sc-canvas");
+            
+            var imgFront = img.cloneNode(true);
+            var imgBack= img.cloneNode(true);
+            
+            imgBack.setAttribute("id", "canvas-back");
+            imgFront.setAttribute("id", "canvas-front");
+            
+            document.getElementsByClassName("sc-canvas-wrapper").appendChild(imgBack);
+            document.getElementsByClassName("sc-canvas-wrapper").appendChild(imgFront);
                   
             new MeatImage(mpImgDataURL);
             $(".sc-camera").hide();
