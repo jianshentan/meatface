@@ -87,8 +87,8 @@ function handleImage(e){
             imgBack.setAttribute("id", "canvas-back");
             imgFront.setAttribute("id", "canvas-front");
             
-            document.getElementsByClassName("sc-canvas-wrapper").appendChild(imgBack);
-            document.getElementsByClassName("sc-canvas-wrapper").appendChild(imgFront);
+            $(".sc-canvas-wrapper").append(imgBack);
+            $(".sc-canvas-wrapper").append(imgFront);
                   
             new MeatImage(mpImgDataURL);
             $(".sc-camera").hide();
