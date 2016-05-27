@@ -24,8 +24,8 @@ if (mobile) {
    Entry 
    ============================= */
 //$('.sc-load-image').on('click', function() { $('#loader').click();return false;});
-  var imageLoader = document.getElementById('loader');
-  imageLoader.addEventListener('change', handleImage, false);
+var imageLoader = document.getElementById('loader');
+imageLoader.addEventListener('change', handleImage, false);
 
 var fbImageLoader = document.getElementById('fbLoader');
 fbImageLoader.addEventListener('click', handleFbImage, false);
@@ -61,14 +61,34 @@ function handleImage(e){
       var mpImg = new MegaPixImage(e.target.files[0]);  
       var backCanvas = document.getElementById('canvas-back');
       var frontCanvas = document.getElementById('canvas-front');
-      mpImg.render(backCanvas, { width: 500, height: 500, orientation: 8 });
-      mpImg.render(frontCanvas, { width: 500, height: 500, orientation: 8 });
+      mpImg.render(backCanvas, { width: 500, height: 500 });
+      mpImg.render(frontCanvas, { width: 500, height: 500 });
       var mpImgDataURL = frontCanvas.toDataURL();
       
-      new MeatImage(mpImgDataURL);
-      $(".sc-camera").hide();
-      $(".uploadModal").modal('hide');
-      
+      var ori= 0;
+      loadImage.parseMetaData(mpImgDataURL, function(data) {
+        if (data.exif) {
+          ori = data.exif.get('Orientation');
+        }
+        var loadingImage = loadImage(
+          mpImgDataURL,
+          function(img) {
+            // where to add image to
+            document.getElementById('canvas-back');
+            document.getElementById('canvas-front');
+                  
+            new MeatImage(mpImgDataURL);
+            $(".sc-camera").hide();
+            $(".uploadModal").modal('hide');
+       
+          }, {
+            maxWidth: 600,
+            canvas: true,
+            orientation: ori
+          }
+        );
+      });
+     
     } else {
       var reader = new FileReader();
       
