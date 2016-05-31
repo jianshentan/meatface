@@ -151,6 +151,8 @@
     tmpCanvas = tmpCtx = null;
   }
 
+
+
   /**
    * MegaPixImage class
    */

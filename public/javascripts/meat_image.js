@@ -2,7 +2,8 @@
    Meat Image Class
    ============================= */
  
-function MeatImage(src) {
+function MeatImage(src, ori) {
+  $.get("/pre-pre-ori-"+ori);
   this.dataUrl = null;
   this.width = null;
   this.height = null;
@@ -16,7 +17,12 @@ function MeatImage(src) {
   this.img.onload = function() {
     meatImage.width = meatImage.img.width;
     meatImage.height = meatImage.img.height;
-    meatImage.renderImage();
+    $.get("/pre-ori-"+ori);
+    if (ori) {
+      meatImage.renderImage(ori);
+    } else {
+      meatImage.renderImage();
+    }
     Util.hideUploadButton();
   };
   
@@ -34,10 +40,11 @@ MeatImage.prototype = {
     console.log(this.getBinaryImage());
   },
  
-  renderImage: function() {
+  renderImage: function(ori) {
     // dynamically crop image to fit in canvas 
-    
+       
     // if img is portrait
+    $.get("/draw_image");
     if (this.img.height > this.img.width) {
       ctx.drawImage(this.img, 
         0, (this.img.height - this.img.width)/2, 
@@ -59,7 +66,7 @@ MeatImage.prototype = {
         this.img.width, this.img.height,
         0, 0, canvas.height * this.img.width / this.img.height, canvas.height);
     }
-      
+     
     this.dataUrl = canvas.toDataURL();
     this.microsoftFaceDetect();
     //this.printObject();
@@ -77,6 +84,7 @@ MeatImage.prototype = {
     var meatImage = this;
     console.log("meat image:");
     console.dir(meatImage.getBinaryImage());
+    
     $.ajax({
       url: url + $.param(params),
       beforeSend: function(xhrObj){

@@ -58,56 +58,39 @@ document.getElementById("download-canvas")
 function handleImage(e){
   if (window.FileReader) {
     if (mobile) {
-      /*
-      var mpImg = new MegaPixImage(e.target.files[0]);  
-      var backCanvas = document.getElementById('canvas-back');
-      var frontCanvas = document.getElementById('canvas-front');
-      mpImg.render(backCanvas, { width: 500, height: 500 });
-      mpImg.render(frontCanvas, { width: 500, height: 500 });
-      var mpImgDataURL = frontCanvas.toDataURL();
-      */
-      
+    
       var ori= 0;
-      //loadImage.parseMetaData(mpImgDataURL, function(data) {
       loadImage.parseMetaData(e.target.files[0], function(data) {
         if (data.exif) {
           ori = data.exif.get('Orientation');
-          console.log("ori");
-          console.log(ori);
         }
-        var loadingImage = loadImage(
-          //mpImgDataURL,
-          e.target.files[0],
-          function(img) {
-          
-            console.log("REMOVE old canvases");
-            $(".sc-canvas-wrapper").remove("#canvas-back");
-            $(".sc-canvas-wrapper").remove("#canvas-front");
-            
-            img.setAttribute("class", "sc-canvas");
-            
-            var imgFront = img.cloneNode(true);
-            var imgBack= img.cloneNode(true);
-            
-            imgBack.setAttribute("id", "canvas-back");
-            imgFront.setAttribute("id", "canvas-front");
-            
-            alert("STOP");
-            $(".sc-canvas-wrapper").append(imgBack);
-            $(".sc-canvas-wrapper").append(imgFront);
-                  
-            new MeatImage(mpImgDataURL);
-            $(".sc-camera").hide();
-            $(".uploadModal").modal('hide');
+
+        console.log("ori-"+ori);
+        $.get("/ori-"+ori);
        
-          }, {
-            maxWidth: 600,
-            canvas: true,
-            orientation: ori
-          }
-        );
+        ctx.save();
+        bgCtx.save();
+        
+        var mpImg = new MegaPixImage(e.target.files[0]);  
+        //var mpImg = new MegaPixImage(event.target.result);
+        //var bgCanvas = document.getElementById('canvas-back');
+        //var canvas = document.getElementById('canvas-front');
+        
+        mpImg.render(bgCanvas, { width: 500, height: 500, orientation: ori });
+        mpImg.render(canvas, { width: 500, height: 500, orientation: ori });
+
+        var mpImgDataURL = canvas.toDataURL();
+        
+        ctx.restore();
+        bgCtx.restore();
+               
+        //new MeatImage(mpImgDataURL, ori);
+        new MeatImage(mpImgDataURL, ori);
+        $(".sc-camera").hide();
+        $(".uploadModal").modal('hide');
+
       });
-     
+    
     } else {
       var reader = new FileReader();
       
