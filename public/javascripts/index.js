@@ -76,8 +76,19 @@ function handleImage(e){
         //var bgCanvas = document.getElementById('canvas-back');
         //var canvas = document.getElementById('canvas-front');
         
-        mpImg.render(bgCanvas, { width: 500, height: 500, orientation: ori });
-        mpImg.render(canvas, { width: 500, height: 500, orientation: ori });
+        // TODO - solve vertical squash problem
+        // TODO - horizontal selfies not working
+        
+        $("#canvas-back").width($("#canvas-back").width() * 4/3);
+        $("#canvas-front").width($("#canvas-front").width() * 4/3);
+        
+        
+        mpImg.render(bgCanvas, { width: $("#canvas-back").width(), 
+                                 height: $("#canvas-back").height(), 
+                                 orientation: ori });
+        mpImg.render(canvas, { width: $("#canvas-front").width(), 
+                               height: $("#canvas-front").height(),
+                               orientation: ori });
 
         var mpImgDataURL = canvas.toDataURL();
         

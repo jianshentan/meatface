@@ -82,53 +82,41 @@
     tmpCanvas.width = tmpCanvas.height = d;
     var tmpCtx = tmpCanvas.getContext('2d');
     var vertSquashRatio = detectVerticalSquash(img, iw, ih);
+    //var vertSquashRatio = iw / ih ;
     var sy = 0;
-    
-    $.get("/orientation-"+options.orientation);
     
     ctx.save();
        
     switch (options.orientation) {
       case 1:
         ctx.transform(1,0,0,1,0,0);
-        bgCtx.transform(1,0,0,1,0,0);
         break;
       case 2:
         ctx.transform(-1,0,0,1,canvas.width,0);
-        bgCtx.transform(-1,0,0,1,canvas.width,0);
         break;
       case 3:
         ctx.transform(-1.0,0,-1,canvas.width,canvas.height);
-        bgCtx.transform(-1.0,0,-1,canvas.width,canvas.height);
         break;
       case 4:
         ctx.transform(1,0,0,-1,0,canvas.height);
-        bgCtx.transform(1,0,0,-1,0,canvas.height);
         break;
       case 5:
         ctx.transform(0,1,1,0,0,0);
-        bgCtx.transform(0,1,1,0,0,0);
         break;
       case 6:
-        /*
-        ctx.rotate(0.5 * Math.PI);
-        ctx.translate(0, -canvas.height);
-        */
         ctx.transform(0,1,-1,0,canvas.height,0);
-        //bgCtx.transform(0,1,-1,0,canvas.height,0);
         break;
       case 7:
         ctx.transform(0,-1,-1,0,canvas.height,canvas.width);
-        bgCtx.transform(0,-1,-1,0,canvas.height,canvas.width);
         break;
       case 8:
         ctx.transform(0,-1,1,0,0,canvas.width);
-        bgCtx.transform(0,-1,1,0,0,canvas.width);
         break;
       default:
         break;
     }
     
+    $.get("/vert-"+vertSquashRatio);
     while (sy < ih) {
       var sh = sy + d > ih ? ih - sy : d;
       var sx = 0;
