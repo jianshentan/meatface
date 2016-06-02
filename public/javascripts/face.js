@@ -6,15 +6,6 @@
 var meatSrcList = [{
     src: "../images/meat1.png",
     type: "steak",
-  }, {
-    src: "../images/meat2.png",
-    type: "chicken"
-  }, {
-    src: "../images/meat3.png", 
-    type: "tuna"
-  }, {
-    src: "../images/meat4.png",
-    type: "tofu"
   }];
 
 function Face(data, meatImage) {

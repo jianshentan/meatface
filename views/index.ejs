@@ -56,6 +56,38 @@
   
     <!-- this is used in the Util module for the getImageFromUrl function-->
     <img style="display:none" src="" id="imageUrl">
+    
+    <!-- Entry overlay -->
+    <div class="sc-overlay" id="sc-overlay">
+      <div class="row">
+        
+        <% if (mobile != "true") { %>
+        <div class="sc-overlay-content col-md-4 col-xs-12">
+          <div class="sc-overlay-center">
+            <img src="/images/tinder-sample.png"> 
+          </div>
+        </div>
+        <% } %>
+        
+        <div class="sc-overlay-content col-md-8 col-xs-12">
+          <div class="sc-overlay-center sc-overlay-text">
+            <span class="h1 sc-thin">Tinder treats us all like meat.</span> &nbsp;
+            <span class="h1">Lets turn it into the meatshop that it really is.</span>
+            <div class="h2 sc-overlay-enter sc-thin underline">Enter</div>    
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <script>
+      $("body").css("overflow", "hidden");
+      $("body").addClass("fixed");
+      $(".sc-overlay-enter").click(function() {
+        $(".sc-overlay").slideUp();  
+        $("body").css("overflow", "scroll");
+        $("body").removeClass("fixed");
+      });
+    </script>
                 
     <!-- Modal to upload image -->
     <div class="modal uploadModal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
@@ -143,10 +175,28 @@
        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 
         sc-intro-right sc-intro">
         <div class="sc-absolute-center sc-banner">
-          <div class="h1">
-            WONDER HOW OTHERS SEE YOU ON TINDER? <br><br> Take a selfie.
+          <div class="h2" style="margin-top: 0px;">How to Hijack Tinder</div>
+          <% if (mobile == "true") { %> <br> <% } %>
+          <div class="h3">
+            <div class="row">
+              <div class="col-xs-1">1.</div>
+              <div class="col-xs-10">Take a selfie and make a MeatFace.</div>
+            </div>
           </div>
-          <div class="h3">Our proprietary meatface algorithm provides the most accurate reflection of how you really appear to others.</div>
+          <% if (mobile == "true") { %> <br> <% } %>
+          <div class="h3">
+            <div class="row">
+              <div class="col-xs-1">2.</div>
+              <div class="col-xs-10">Download your new MeatFace and set it as your Tinder profile picture.</div>
+            </div>
+          </div>
+          <% if (mobile == "true") { %> <br> <% } %>
+          <div class="h3">
+            <div class="row">
+              <div class="col-xs-1">3.</div>
+              <div class="col-xs-10">Help flood Tinder with MeatFaces by spreading the word!</div>
+            </div>
+          </div>
         </div> 
       </div>
       
@@ -194,9 +244,11 @@
           <div class="">
             <div class="sc-share-button" id="fb-share">
               <i class="fa fa-facebook" aria-hidden="true"></i>
+              <div class="sc-share-text">Share</div>
             </div> 
             <div class="sc-share-button" id="twitter-share">
               <i class="fa fa-twitter" aria-hidden="true"></i>
+              <div class="sc-share-text">Tweet</div>
             </div> 
           </div>
         </div>
@@ -237,9 +289,12 @@
               <img src="images/siren_logo.png" class="sc-maker-logo sc-maker-logo-siren" /> 
             </div>
             <div class="sc-maker-desc sc-maker-desc-siren">
-              <div class="h3">Siren</div> 
+              <div class="h3" style="margin-bottom: 4vw;">Siren - <a href="" style="text-decoration: underline;">(download)</a></div> 
               <div class="h4">
-                The only time people should look at you like a piece of meat is if you choose it.
+                Other dating apps make you sell yourself. Siren lets you be yourself.
+                <br>
+                <br>
+                Siren is the first dating app based around thoughtful interaction with the people around you and organic relationship growth.
               </div>
             </div>  
           </div>
@@ -253,11 +308,14 @@
               </div>
               <div class="col-xs-9">
                 <div class="sc-maker-desc sc-maker-desc-siren">
-                  <div class="h3">
-                    <a href="http://www.siren.mobi" target="_blank">Siren</a>
-                  </div>
                   <div class="h4">
-                    The only time people should look at you like a piece of meat is if you choose it.
+                    Siren - <a href="http://www.siren.mobi" target="_blank">(Download)</a>
+                  </div>
+                  <div class="h5">
+                    Other dating apps make you sell yourself. Siren lets you be yourself.
+                    <br>
+                    <br>
+                    Siren is the first dating app based around thoughtful interaction with the people around you and organic relationship growth.
                   </div>
                 </div>
               </div>
@@ -278,9 +336,12 @@
               <img src="images/hv_logo.png" class="sc-maker-logo sc-maker-logo-hv" /> 
             </div>
             <div class="sc-maker-desc sc-maker-desc-hv">
-              <div class="h3">Hello Velocity</div> 
+              <div class="h3" style="margin-bottom: 4vw;">Hello Velocity</div> 
               <div class="h4">
-                The only time people should look at you like a piece of meat is if you choose it.
+                Hello Velocity designs brand identities for companies that do things differently, and creates campaigns to share their ideas with the world. 
+                <br>
+                <br>
+                As a creative studio that grew out of an artist collective, Hello Velocity also runs its own experimental campaigns that explore how information spreads in the social age.
               </div>
             </div>  
           </div>
@@ -294,11 +355,14 @@
               </div>
               <div class="col-xs-9">
                 <div class="sc-maker-desc sc-maker-desc-hv">
-                  <div class="h3">
+                  <div class="h4">
                     <a href="http://www.hellovelocity.com" target="_blank">Hello Velocity</a>
                   </div>
-                  <div class="h4">
-                    The only time people should look at you like a piece of meat is if you choose it.
+                  <div class="h5">
+                    Hello Velocity designs brand identities for companies that do things differently, and creates campaigns to share their ideas with the world. 
+                    <br>
+                    <br>
+                    As a creative studio that grew out of an artist collective, Hello Velocity also runs its own experimental campaigns that explore how information spreads in the social age.
                   </div>
                 </div>
               </div>
@@ -311,9 +375,18 @@
     
     <div class="sc-footer h3">
       <% if (mobile == "true") { %>
-      <div class="sc-faq-wrapper">
-        <a href="/faq">F . A . Q</a>
-      </div> 
+      <div class="row">
+        <div class="col-xs-6" style="padding: 2vw">
+          <div class="sc-faq-wrapper">
+            <a href="/faq">F.A.Q</a>
+          </div> 
+        </div>
+        <div class="col-xs-6" style="padding: 2vw">
+          <div class="sc-pp-wrapper">
+            <a href="/privacy">Privacy</a>
+          </div>
+        </div>
+      </div>
       <div class="sc-fb-like-wrapper">
         <div
             class="fb-like"
@@ -327,7 +400,7 @@
       <% } else { %>
       <div class="row">
         <div class="sc-footer-left col-xs-6">
-          <a href="/faq">F . A . Q</a>
+          <a href="/faq">FAQ</a> / <a href="/privacy">Privacy Policy</a>
         </div>
         <div class="sc-footer-right col-xs-6">
           <div

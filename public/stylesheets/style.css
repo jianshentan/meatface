@@ -42,8 +42,19 @@ body {
    line-height: 24px;
    font-weight: 700;
 }
+.h5 {
+   font-size: 14px;
+   line-height: 18px;
+   font-weight: 700;
+}
+.sc-thin {
+  font-weight: 500;
+}
 .center {
   text-align: center;
+}
+.underline {
+  text-decoration: underline;
 }
 .row {
   margin: 0px;
@@ -190,7 +201,7 @@ label.sc-upload-label input[type="file"] {
  
 .sc-device {
   width: 384px;
-  height: 480px;
+  height: 500px;
   padding: 12px;
   background-color: white;
   box-shadow: 12px 12px 0px #ea0047;
@@ -243,12 +254,19 @@ label.sc-upload-label input[type="file"] {
   margin: 12px;
   font-size: 24px;
 }
+.sc-share-text {
+  font-size: 14px;
+  margin-top: -6px;
+}
 .sc-share-button:hover {
   cursor: pointer;
 }
 .sc-share-button.active {
   border: 10px solid #2ff1ee;
   color: white;
+}
+.sc-share-button.active .sc-share-text {
+  color: #555;
 }
 .sc-share-button.active#fb-share{
   background-color: #3b5998;
@@ -427,6 +445,48 @@ label.sc-upload-label input[type="file"] {
    margin-bottom: 8px; 
 }
 
+/* ===========================
+   Overlay 
+   =========================== */
+   
+.sc-overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  overflow: hidden;
+  z-index: 2000;
+  background-color: white;
+  color: #ea0047;
+  width: 100vw;
+  height: 100vh;
+}
+.sc-overlay-content {
+  height: 100vh;
+}
+.sc-overlay-content img {
+  width: 300px;
+  height: auto;
+  box-shadow: 12px 12px 0px #ea0047;
+  position: relative;
+}
+.sc-overlay .h1 {
+  text-transform: inherit !important;
+}
+.sc-overlay-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.sc-overlay-text {
+  width: 80%;
+}
+.sc-overlay-enter {
+  cursor: pointer;
+}
+   
 /* ===========================
    Modal 
    =========================== */

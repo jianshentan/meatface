@@ -1,16 +1,24 @@
 body {
   font-size: 3vw;
 }
+body.fixed {
+  top: 0;
+  left: 0 ;
+  width: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  position: fixed;
+}
 .h1 {
   font-size: 9vw;
   line-height: 12vw;
 }
 .h2 {
-  font-size: 7vw;
+  font-size: 8vw;
   line-height: 9vw;
 }
 .h3 {
-  font-size: 5vw;
+  font-size: 6vw;
   line-height: 7vw;
 }
 .h4 {
@@ -20,30 +28,34 @@ body {
 .sc-intro-left {
   background-size: 25vw;
   background-image: none;
-  margin-top: 100vh;
-  height: 70vh;
+  /*margin-top: 100vh;*/
+  height: auto;
+  color: #ea0047;
+  background-color: #ea0047;
 }
 .sc-banner {
-  color: #333;
+  padding-left: 7.5%;
+  padding-right: 7.5%;
 }
 .sc-intro-right {
   background-color: white;
-  background-image: url('/images/bg_tile.png');
-  background-repeat: repeat;
-  background-size: 50vw;
-  position: fixed;
   z-index: -10;
+  height: 70vh;
 }
 .sc-banner .h1 {
   text-shadow: 8px 8px white;
+}
+.sc-banner .h2 {
+  text-shadow: 6px 6px white;
 }
 .sc-banner .h3 {
   text-shadow: 4px 4px white;
 }
 .sc-device {
   width: 90vw;
-  height: 112vw;
-  padding: 5vw;
+  height: 120vw;
+  padding: 5vw 5vw 0 5vw;
+  margin: 5vw 5vw 0 5vw;
   box-shadow: 0vw 0vw 0 #ea0047;
 }
 .sc-camera img {
@@ -83,18 +95,23 @@ body {
   margin: 3vw;
   font-size: 8vw;
 }
+.sc-share-text {
+  font-size: 4vw;  
+}
 .sc-share-button.active {
   border: 2vw solid #2ff1ee;
 }
-.sc-intro,
-.sc-intro-left {
-  height: inherit;
-}
-.sc-intro-right {
-  height: 100vh;
-}
 .sc-device {
   margin: 5vw auto;
+}
+.sc-body {
+  background-image: url('/images/bg_tile.png');
+  background-repeat: repeat;
+  background-size: 50vw;
+  height: 70vh;
+}
+.sc-body .sc-banner {
+  color: #333;
 }
 .sc-body,
 .sc-intro {
@@ -102,6 +119,12 @@ body {
 }
 .sc-body-maker {
   height: auto;
+}
+.sc-body-right-bottom {
+  background-size: 25vw;
+}
+.sc-body-left::after {
+  background-image: none !important;
 }
 .sc-maker-logo-wrapper {
   width: 100vw;
@@ -126,11 +149,12 @@ body {
   box-shadow: 2vw 2vw 0px white;
   border: 1vw solid #ea0047;
 }
+.sc-pp-wrapper,
 .sc-faq-wrapper,
 .sc-fb-like-wrapper {
-  width: 100%;
   text-align: center;
 }
+.sc-pp-wrapper,
 .sc-faq-wrapper {
   border: 1vw solid #ea0047;
   padding: 3vw;
@@ -207,13 +231,26 @@ body {
   color: white;
 }
 .sc-mobile-warning {
-  background-color: #ea0047;
-  position: fixed;
+  background-color: white;
+  border-bottom: 2px solid #ea0047;
+  position: relative;
   height: 10vh;
   line-height: 10vh;
-  color: white;
+  color: #ea0047;
   width: 100vw;
   font-size: 3.2vw;
   text-align: center;
   z-index: 1000;
+}
+.sc-overlay img {
+  width: 80vw;
+  height: auto;
+  box-shadow: 2vw 2vw 0px #ea0047;
+}
+.sc-overlay-center {
+  width: 80%;
+}
+.sc-call-to-action {
+  padding-bottom: 96px;
+  
 }

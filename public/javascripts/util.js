@@ -90,7 +90,7 @@ var Util = {
     } else {
       alert("Errored. Please try again.");
     }
-    //window.location.reload();
+    window.location.reload();
     
     /*
     Util.loading(false);
