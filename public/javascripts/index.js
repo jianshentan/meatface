@@ -79,9 +79,10 @@ function handleImage(e){
         // TODO - solve vertical squash problem
         // TODO - horizontal selfies not working
         
-        $("#canvas-back").width($("#canvas-back").width() * 4/3);
-        $("#canvas-front").width($("#canvas-front").width() * 4/3);
-        
+        if (ori == 6 || ori == 1) {
+          $("#canvas-back").width($("#canvas-back").width() * 4/3);
+          $("#canvas-front").width($("#canvas-front").width() * 4/3);
+        }
         
         mpImg.render(bgCanvas, { width: $("#canvas-back").width(), 
                                  height: $("#canvas-back").height(), 
