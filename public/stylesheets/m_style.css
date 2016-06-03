@@ -31,14 +31,20 @@ body.fixed {
   /*margin-top: 100vh;*/
   height: auto;
   color: #ea0047;
-  background-color: #ea0047;
+  background-color: white;
 }
 .sc-banner {
+  padding-top: 12%;
+  padding-bottom: 12%;
   padding-left: 7.5%;
   padding-right: 7.5%;
 }
+.sc-banner .h3 {
+  font-size: 5vw;
+}
 .sc-intro-right {
-  background-color: white;
+  background-color: #ea0047;
+  background-image: none;
   z-index: -10;
   height: 70vh;
 }

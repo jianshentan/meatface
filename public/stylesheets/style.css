@@ -95,20 +95,23 @@ label.sc-upload-label input[type="file"] {
   color: white;
   opacity: 1.0;
 }
+.uploadModal {
+  padding-right: 0px !important;
+}
  
 /* ===========================
    Intro - top
    =========================== */
  
 .sc-intro-left {
+  background-color: white;
+  float: left;
+}
+.sc-intro-right {
   background-color: #2ff1ee;
   background-image: url('/images/bg_tile.png');
   background-repeat: repeat;
   background-size: 100px;
-  float: left;
-}
-.sc-intro-right {
-  background-color: white;
   float: right;
 }
 .sc-intro {
@@ -208,6 +211,7 @@ label.sc-upload-label input[type="file"] {
   text-align: center;
 }
 .sc-load-image {
+  display: none;
   width: 150px;
   background-color: rgba(234,0,71,0.5);
   height: 45px;
@@ -283,7 +287,11 @@ label.sc-upload-label input[type="file"] {
   top: 55%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  color: white;
+  color: #AAA;
+  cursor: pointer;
+}
+.sc-camera:hover {
+  color: #888; 
 }
 .sc-camera img {
   width: 120px;

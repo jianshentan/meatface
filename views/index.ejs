@@ -71,8 +71,9 @@
         
         <div class="sc-overlay-content col-md-8 col-xs-12">
           <div class="sc-overlay-center sc-overlay-text">
-            <span class="h1 sc-thin">Tinder treats us all like meat.</span> &nbsp;
-            <span class="h1">Lets turn it into the meatshop that it really is.</span>
+            <span class="h1 sc-thin">What if for a day, Tinder was a meat counter display?</span> &nbsp;
+            <br>
+            <span class="h1">Oh wait... it is that way.</span>
             <div class="h2 sc-overlay-enter sc-thin underline">Enter</div>    
           </div>
         </div>
@@ -173,9 +174,13 @@
     <div class="row">
       
        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 
-        sc-intro-right sc-intro">
+        sc-intro-left sc-intro">
+        <% if (mobile == "true") { %>
+        <div class="sc-banner">
+        <% } else { %>
         <div class="sc-absolute-center sc-banner">
-          <div class="h2" style="margin-top: 0px;">How to Hijack Tinder</div>
+        <% } %>
+          <div class="h2" style="margin-top: 0px;">How to Hack Tinder</div>
           <% if (mobile == "true") { %> <br> <% } %>
           <div class="h3">
             <div class="row">
@@ -183,25 +188,27 @@
               <div class="col-xs-10">Take a selfie and make a MeatFace.</div>
             </div>
           </div>
-          <% if (mobile == "true") { %> <br> <% } %>
           <div class="h3">
             <div class="row">
               <div class="col-xs-1">2.</div>
               <div class="col-xs-10">Download your new MeatFace and set it as your Tinder profile picture.</div>
             </div>
           </div>
-          <% if (mobile == "true") { %> <br> <% } %>
           <div class="h3">
             <div class="row">
               <div class="col-xs-1">3.</div>
-              <div class="col-xs-10">Help flood Tinder with MeatFaces by spreading the word!</div>
+              <div class="col-xs-10">Flood Tinder with MeatFaces by spreading the word.</div>
             </div>
+          </div>
+          <% if (mobile == "true") { %> <br> <% } %>
+          <div class="h3">
+            <strong>Lets turn Tinder into the meatshop that it really is!</strong>
           </div>
         </div> 
       </div>
       
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 
-        sc-intro-left sc-intro">
+        sc-intro-right sc-intro">
         
         <% if (mobile == "true") { %>
         <div class="sc-device">
@@ -220,8 +227,13 @@
             
             <div class="sc-camera">
               <img src="/images/camera_icon.png">
-              <div class="h3">#morethanmeat</div>
+              <div class="h3">Take A Selfie!</div>
             </div>
+            <script>
+              $(".sc-camera").click(function(){
+                $(".uploadModal").modal('toggle');
+              });
+            </script>
             
             <canvas id="canvas-back" class="sc-canvas"></canvas>
             <canvas id="canvas-front" class="sc-canvas"></canvas>
@@ -257,11 +269,11 @@
     </div>
     
     <div class="sc-call-to-action">
-      <div class="h1">Take a photo. Join the movement.</div>
+      <div class="h1">Take a photo. Fight The Swipe.</div>
       <div class="h3">#MORETHANMEAT</div>
     </div>
     
-    <div class="row">
+    <div class="row"">
       
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 
         sc-body-left sc-body">
