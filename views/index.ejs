@@ -85,7 +85,7 @@
       $("body").addClass("fixed");
       $(".sc-overlay-enter").click(function() {
         $(".sc-overlay").slideUp();  
-        $("body").css("overflow", "scroll");
+        $("body").css("overflow", "auto");
         $("body").removeClass("fixed");
       });
     </script>
@@ -180,7 +180,7 @@
         <% } else { %>
         <div class="sc-absolute-center sc-banner">
         <% } %>
-          <div class="h2" style="margin-top: 0px;">How to Hack Tinder</div>
+          <div class="h1" style="margin-top: 0px;">How to Hack Tinder</div>
           <% if (mobile == "true") { %> <br> <% } %>
           <div class="h3">
             <div class="row">
@@ -225,13 +225,15 @@
             
             <button type="button" class="btn btn-primary sc-load-image" data-toggle="modal" data-target=".uploadModal">New Image</button>
             
-            <div class="sc-camera">
+            <div class="sc-camera" id="sc-camera">
               <img src="/images/camera_icon.png">
               <div class="h3">Take A Selfie!</div>
             </div>
             <script>
-              $(".sc-camera").click(function(){
-                $(".uploadModal").modal('toggle');
+              $(document).ready(function() {
+                $("#sc-camera").click(function(){
+                  $(".uploadModal").modal("toggle");
+                });
               });
             </script>
             
@@ -301,7 +303,7 @@
               <img src="images/siren_logo.png" class="sc-maker-logo sc-maker-logo-siren" /> 
             </div>
             <div class="sc-maker-desc sc-maker-desc-siren">
-              <div class="h3" style="margin-bottom: 4vw;">Siren - <a href="" style="text-decoration: underline;">(download)</a></div> 
+              <div class="h3" style="margin-bottom: 4vw;"><a href="http://www.siren.mobi">Siren</a></div> 
               <div class="h4">
                 Other dating apps make you sell yourself. Siren lets you be yourself.
                 <br>
@@ -321,7 +323,7 @@
               <div class="col-xs-9">
                 <div class="sc-maker-desc sc-maker-desc-siren">
                   <div class="h4">
-                    Siren - <a href="http://www.siren.mobi" target="_blank">(Download)</a>
+                    <a href="http://www.siren.mobi" target="_blank">Siren</a>
                   </div>
                   <div class="h5">
                     Other dating apps make you sell yourself. Siren lets you be yourself.

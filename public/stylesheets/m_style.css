@@ -45,7 +45,6 @@ body.fixed {
 .sc-intro-right {
   background-color: #ea0047;
   background-image: none;
-  z-index: -10;
   height: 70vh;
 }
 .sc-banner .h1 {
@@ -258,5 +257,5 @@ body.fixed {
 }
 .sc-call-to-action {
   padding-bottom: 96px;
-  
+  padding-top: 96px;
 }
