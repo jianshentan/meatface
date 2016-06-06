@@ -87,7 +87,6 @@
     tmpCanvas.width = tmpCanvas.height = d;
     var tmpCtx = tmpCanvas.getContext('2d');
     var vertSquashRatio = doSquash ? detectVerticalSquash(img, iw, ih) : 1;
-    $.get("/vert-squash-"+vertSquashRatio);
     var dw = Math.ceil(d * width / iw);
     var dh = Math.ceil(d * height / ih / vertSquashRatio);
     var sy = 0;

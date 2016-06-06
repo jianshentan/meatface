@@ -70,6 +70,7 @@ var Util = {
     var img = document.getElementById('imageUrl');
     img.setAttribute('crossOrigin', 'anonymous');
     img.onload = function() {
+      console.log("image loaded");
       var canvas = document.createElement("canvas");
       canvas.width = img.width;
       canvas.height = img.height;
@@ -77,7 +78,10 @@ var Util = {
       ctx.drawImage(img, 0, 0);
       var dataURL = canvas.toDataURL("image/png");
       //return dataURL;  
-      cb(dataURL);
+      cb(dataURL, null);
+    }
+    img.onerror = function() {
+      cb(null, true);
     }
     img.src = url;
     //return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");

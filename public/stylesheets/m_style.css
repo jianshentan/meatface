@@ -255,6 +255,9 @@ body.fixed {
 .sc-overlay-center {
   width: 80%;
 }
+.sc-overlay-content {
+  width: 100%;
+}
 .sc-call-to-action {
   padding-bottom: 96px;
   padding-top: 96px;

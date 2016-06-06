@@ -126,11 +126,14 @@ function handleUrlImage(e) {
   if (!Util.isValidUrl(url)) {
     Util.handleError("invalid url");
   } else {
-    Util.getImageFromUrl(url, function(dataUrl) {
-      console.log(dataUrl);
-      new MeatImage(dataUrl);
-      $(".sc-camera").hide();
-      $(".uploadModal").modal('hide');
+    Util.getImageFromUrl(url, function(dataUrl, error) {
+      if (error) {
+        Util.handleError("The host of the URL you submitted does not allow this site from accessing its content. Try downloading the image and uploading it manually.");
+      } else {
+        new MeatImage(dataUrl);
+        $(".sc-camera").hide();
+        $(".uploadModal").modal('hide');
+      }
     });
   }
 }

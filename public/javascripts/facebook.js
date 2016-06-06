@@ -8,7 +8,7 @@ var fbUser = {
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '215442935493903',
-    cookie     : true,  // enable cookies to allow the server to access the session
+    cookie     : false,  // enable cookies to allow the server to access the session
     xfbml      : true,
     version    : 'v2.6'
   });
