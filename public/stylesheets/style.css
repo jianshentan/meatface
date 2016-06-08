@@ -287,12 +287,12 @@ label.sc-upload-label input[type="file"] {
   top: 55%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  color: #ddd;
+  color: white;
   cursor: pointer;
   width: 60%;
 }
 .sc-camera:hover {
-  color: white; 
+  color: #eee; 
 }
 .sc-camera img {
   width: 140px;
