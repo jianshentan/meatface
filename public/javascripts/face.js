@@ -256,9 +256,12 @@ Face.prototype = {
    },
    
    addHashtag: function(cb) {
+      ctx.fillStyle = "#EA0047";
+      ctx.fillRect(0, CANVAS_HEIGHT - CANVAS_HEIGHT * 0.1, CANVAS_WIDTH * .46, CANVAS_HEIGHT * 0.1)
+      
       var fontSize = CANVAS_WIDTH * 20/360; 
       ctx.font = fontSize + "px Helvetica";
-      ctx.fillStyle = "red";
+      ctx.fillStyle = "white";
       ctx.fillText("#morethanmeat", fontSize/2, CANVAS_HEIGHT - fontSize/2);
       
       cb();

@@ -242,9 +242,10 @@ label.sc-upload-label input[type="file"] {
   background-color: #EA0047;
   height: 45px;
   width: 45px;
-  line-height: 45px;
+  line-height: 40px;
   color: white;
   z-index: 100;
+  border: 3 solid white;
 }
 .sc-share-button {
   display: inline-block;

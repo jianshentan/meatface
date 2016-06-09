@@ -77,7 +77,6 @@ function handleImage(e){
         //var bgCanvas = document.getElementById('canvas-back');
         //var canvas = document.getElementById('canvas-front');
         
-        // TODO - solve vertical squash problem
         // TODO - horizontal selfies not working
         
         if (ori == 6 || ori == 1) {
@@ -164,7 +163,16 @@ function handleWebcamImage(e) {
   uploadButton.click(function(){
     videoElement.hide();
   });
+
   
+  var localstream;
+  var video = document.querySelector("#video-stream");
+  /*
+  video.style.cssText = "-moz-transform: scale(-1, 1); \
+    -webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); \
+    transform: scale(-1, 1); filter: FlipH;";
+    */
+    
   takePictureButton.click(function(){ 
     canvas.width = 360;
     canvas.height = 360;
@@ -181,15 +189,12 @@ function handleWebcamImage(e) {
     new MeatImage(canvas.toDataURL());
     videoElement.hide();
     takePictureButton.hide();
-  });
-  
-  var video = document.querySelector("#video-stream");
-  /*
-  video.style.cssText = "-moz-transform: scale(-1, 1); \
-    -webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); \
-    transform: scale(-1, 1); filter: FlipH;";
-    */
     
+    video.pause();
+    video.src = "";
+    localstream.getTracks()[0].stop();
+  });  
+  
   navigator.getUserMedia = (
     navigator.getUserMedia || 
     navigator.webkitGetUserMedia || 
@@ -206,9 +211,11 @@ function handleWebcamImage(e) {
     Util.handleError("The webcam is not supported on your broswer, please try it on Chrome!");
   }
   
-  function handleVideo(stream) {
-  	video.src = window.URL.createObjectURL(stream);
-  }
   
+  function handleVideo(stream) {
+    localstream = stream; 
+  	video.src = window.URL.createObjectURL(localstream);
+  }
+ 
 }
 

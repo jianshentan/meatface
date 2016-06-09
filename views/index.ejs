@@ -438,6 +438,16 @@
         }
       </style>
     </div>
+    <script>
+      $(document).ready(function() {
+        setTimeout(function() {
+          if ($(".fb-like").children().length < 1) {
+            window.location.reload();
+          }
+        }, 1000);
+      });
+    </script>
+    
   </body>
 
   <script src="javascripts/index.js"></script>
