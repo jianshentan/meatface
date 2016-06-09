@@ -109,6 +109,9 @@ body.fixed {
 .sc-device {
   margin: 5vw auto;
 }
+.sc-loading-screen {
+  height: 130vw;
+}
 .sc-body {
   background-image: url('/images/bg_tile.png');
   background-repeat: repeat;
