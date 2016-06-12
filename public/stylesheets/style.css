@@ -186,6 +186,7 @@ label.sc-upload-label input[type="file"] {
 }
 .sc-maker-desc a {
   color: inherit; 
+  text-decoration: underline;
 }
 .sc-maker-desc-siren {
   color: #ea0047;
@@ -465,16 +466,16 @@ label.sc-upload-label input[type="file"] {
    =========================== */
    
 .sc-overlay {
-  position: fixed;
+  /*position: fixed;
   top: 0px;
   left: 0px;
   right: 0px;
   bottom: 0px;
   overflow: hidden;
   z-index: 2000;
-  background-color: white;
-  color: #ea0047;
-  width: 100vw;
+  */
+  color: white;
+  background-color: #ea0047;
   height: 100vh;
 }
 .sc-overlay-content {
@@ -483,11 +484,17 @@ label.sc-upload-label input[type="file"] {
 .sc-overlay-content img {
   width: 300px;
   height: auto;
-  box-shadow: 12px 12px 0px #ea0047;
+  /*box-shadow: 12px 12px 0px rgba(0,0,0,0.5);/*#ea0047;*/
   position: relative;
 }
 .sc-overlay .h1 {
   text-transform: inherit !important;
+}
+.sc-overlay-right {
+  position: absolute;
+  top: 50%;
+  right: 0px !important;
+  transform: translateY(-50%);
 }
 .sc-overlay-center {
   position: absolute;

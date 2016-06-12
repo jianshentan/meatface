@@ -5,11 +5,46 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+    <title>MeatFace</title>
+    <link rel="canonical" href="https://www.meatface.me">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="meatface,tinder,siren,dating,online dating,dating app,startup,start up,meat,face" >
+    <meta name="description" content="Swiping is not dating. Apps that only let you swipe turns you into meat. MeatFace is a movement to turn these dating apps into the meatshops that they are. Join the movement & fight the swipe!">
+   
+    <!--FACEBOOK-->
+    <meta property="og:title" content="MeatFace" >
+    <meta property="og:site_name" content="MeatFace">
+    <meta property="og:url" content="https://www.meatface.me" >
+    <meta property="og:description" content="Swiping is not dating. Apps that only let you swipe turns you into meat. MeatFace is a movement to turn these dating apps into the meatshops that they are. Join the movement & fight the swipe!" >
+    <meta property="og:image" content="<IMAGE>" >
+    <meta property="fb:app_id" content="215442935493903" >
+    <meta property="og:type" content="website" >
+    <meta property="og:locale" content="en_US" >
+    
+    <!--TWITTER-->
+    <meta property="twitter:card" content="summary" >
+    <meta property="twitter:title" content="MeatFace" >
+    <meta property="twitter:description" content="Swiping is not dating. Apps that only let you swipe turns you into meat. MeatFace is a movement to turn these dating apps into the meatshops that they are. Join the movement & fight the swipe!" >
+    <meta property="twitter:creator" content="@meatfaceme" >
+    <meta property="twitter:url" content="https://www.meatface.me" >
+    <meta property="twitter:image" content="<image>" >
+    
     <link href="stylesheets/style.css" rel="stylesheet">
     <% if (mobile == "true") { %>
       <link href="stylesheets/m_style.css" rel="stylesheet">
     <% } %>
     
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-67426824-2', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
     <script>
 
       if (window.location.protocol != "https:") {
@@ -61,7 +96,7 @@
         
         <% if (mobile != "true") { %>
         <div class="sc-overlay-content sc-overlay-content-left col-sm-4 col-xs-0">
-          <div class="sc-overlay-center">
+          <div class="sc-overlay-right">
             <img src="/images/tinder-sample.png"> 
           </div>
         </div>
@@ -77,13 +112,25 @@
             <br>
             <br> 
             <br> 
-            <div class="h2 sc-overlay-enter sc-thin">Enter</div>    
+            <div class="sc-scroll center">
+              <strong>scroll down</strong>
+              <br>
+              <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+            </div>
+            <script>
+              $(".sc-scroll").click(function() {
+                $("html, body").animate({
+                  scrollTop: $("#main-content").offset().top
+                }, 1000);
+              });
+            </script>
           </div>
         </div>
         
       </div>
     </div>
     <script>
+    /*
       $("body").css("overflow", "hidden");
       $("body").addClass("fixed");
       $(".sc-overlay-enter").click(function() {
@@ -91,8 +138,25 @@
         $("body").css("overflow", "auto");
         $("body").removeClass("fixed");
       });
+      */
     </script>
                 
+    <% if (mobile == "true") { %>
+    <div class="sc-mobile-diagram">
+      <img class="sc-mobile-diagram-image" src="/images/mobile_diagram.png">
+      <div class="sc-mobile-diagram-text h5">To ensure the best results, make sure that the faces in the image you use appear in the top portion of the frame as shown above.</div>
+      <label class="sc-upload-label center">
+        <input class="inline-block" type="file" id="loader" class="btn btn-default sc-loader" >
+        <span style="width:120px;" class="btn btn-default">Upload / Take photo</span>
+      </label>
+    </div>
+    <script>
+      $("#loader").click(function(){ 
+        $(".sc-mobile-diagram").slideUp();
+      });
+    </script>
+    <% } %>
+    
     <!-- Modal to upload image -->
     <div class="modal uploadModal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
       <div class="modal-dialog modal-sm">
@@ -104,10 +168,20 @@
           <div class="modal-body">
             
             <% if (mobile == "true") { %>
+            <!--
             <label class="sc-upload-label">
-              <input class="inline-block" type="file" id="loader" class="btn btn-default sc-loader" >
+              <input class="inline-block" type="file" class="btn btn-default sc-loader" >
               <span style="width:120px;" class="btn btn-default">Upload / Take photo</span>
             </label>
+            -->
+            <br>
+            <button class="sc-loader btn btn-default" style="width:60vw;padding:3vw;">Upload / Take photo</button>
+            <br>
+            <script>
+              $(".sc-loader").click(function() {
+                $(".sc-mobile-diagram").slideDown();
+              });
+            </script>
             <% } else { %>
             <div class="row">
               <div class="col-xs-6">
@@ -129,11 +203,11 @@
               <% if (mobile != "true") { %> <br> <% } %>
               <br>
               <div class="sc-fb-button inline-block">
-                <fb:login-button <% if (mobile == "true") { %>data-size="xlarge"<% } %> scope="user_photos,public_profile" onlogin="checkLoginState();">
+                <fb:login-button <% if (mobile == "true") { %>data-size="large"<% } %> scope="user_photos,public_profile" onlogin="checkLoginState();">
                 </fb:login-button>
                 <span id="status"></span>
               </div>
-              <divclass="sc-fb-profile-pictures">
+              <div class="sc-fb-profile-pictures">
                 <div class="sc-fb-profile-picture-options"></div>
                 <img class="sc-fb-profile-picture" src="">
                 <input id="fbLoader" class="sc-fb-profile-picture-submit btn btn-default" type="button" value="Submit"/>
@@ -159,24 +233,24 @@
         </div>
       </div>
     </div>
-    
-    <% if (mobile == "true") { %>
-    <div class="sc-mobile-warning">
-      <div class="row">
-        <div class="col-xs-10">Use Chrome on desktop for the best experience.</div>
-        <div class="col-xs-2" id="close-mobile-warning"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span></div>
+
+    <div class="row" id="main-content">
+       
+      <% if (mobile == "true") { %>
+      <div class="sc-mobile-warning">
+        <div class="row">
+          <div class="col-xs-10">Use Chrome on desktop for the best experience.</div>
+          <div class="col-xs-2" id="close-mobile-warning"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span></div>
+        </div>
       </div>
-    </div>
-    <script>
-      $("#close-mobile-warning").click(function() {
-        $(".sc-mobile-warning").slideUp();  
-      });
-    </script>
-    <% } %>
+      <script>
+        $("#close-mobile-warning").click(function() {
+          $(".sc-mobile-warning").slideUp();  
+        });
+      </script>
+      <% } %>     
     
-    <div class="row">
-      
-       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 
         sc-intro-left sc-intro">
         <% if (mobile == "true") { %>
         <div class="sc-banner">
@@ -188,31 +262,26 @@
           <div class="h3">
             <div class="row">
               <div class="col-xs-1">1.</div>
-              <div class="col-xs-10">Take a selfie and make a MeatFace.</div>
+              <div class="col-xs-10">Take a MeatFace selfie.</div>
             </div>
           </div>
           <div class="h3">
             <div class="row">
               <div class="col-xs-1">2.</div>
-              <div class="col-xs-10">Set your MeatFace as your dating app profile picture.</div>
+              <div class="col-xs-10">Set it as your dating app profile picture.</div>
             </div>
           </div>
           <div class="h3">
             <div class="row">
               <div class="col-xs-1">3.</div>
-              <div class="col-xs-10">Share it, Tweeet it, and flood the dating scene.</div>
+              <div class="col-xs-10">Share it, Tweet it, and flood the dating scene.</div>
             </div>
           </div>
           <% if (mobile == "true") { %> <br> <% } %>
           <div class="h3">
-            <strong>Lets turn these dating apps into the meatshop that they really are!</strong>
+            <strong>Let's turn these dating apps into the meatshops that they really are!</strong>
           </div>
-          <br>
-          <div class="sc-scroll center">
-            <strong>scroll down</strong>
-            <br>
-            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-          </div>
+          
         </div> 
       </div>
       
@@ -280,7 +349,7 @@
     </div>
     
     <div class="sc-call-to-action">
-      <div class="h1">Join The Movement. Fight The Swipe.</div>
+      <div class="h1">Join The Movement.<br>Fight The Swipe.</div>
       <div class="h3">#MORETHANMEAT</div>
     </div>
     
@@ -311,7 +380,7 @@
             <div class="sc-maker-desc sc-maker-desc-siren">
               <div class="h3" style="margin-bottom: 4vw;"><a href="http://www.siren.mobi">Siren</a></div> 
               <div class="h4">
-                Siren is the first dating app based around thoughtful interaction with the people around you and organic relationship growth.
+                Siren is the first dating app based around thoughtful interaction with the people around you.
                 <br>
                 <br>
                 Other dating apps make you sell yourself. Siren lets you be yourself.
@@ -332,7 +401,7 @@
                     <a href="http://www.siren.mobi" target="_blank">Siren</a>
                   </div>
                   <div class="h5">
-                    Siren is the first dating app based around thoughtful interaction with the people around you and organic relationship growth.
+                    Siren is the first dating app based around thoughtful interaction with the people around you.
                     <br>
                     <br>
                     Other dating apps make you sell yourself. Siren lets you be yourself.
@@ -376,10 +445,7 @@
                     <a href="http://www.hellovelocity.com" target="_blank">Hello Velocity</a>
                   </div>
                   <div class="h5">
-                    Hello Velocity designs brand identities for companies that do things differently, and creates campaigns to share their ideas with the world. 
-                    <br>
-                    <br>
-                    As a creative studio that grew out of an artist collective, Hello Velocity also runs its own experimental campaigns that explore how information spreads in the social age.
+                    Hello Velocity is a creative studio that grew out of an artist collective. Hello Velocity creates brands and online campaigns to provoke conversation  and explore information spread in the social age. 
                   </div>
                 </div>
               </div>

@@ -64,7 +64,10 @@ body.fixed {
   box-shadow: 0vw 0vw 0 #ea0047;
 }
 .sc-camera img {
-  width: 25vw;
+  width: 30vw;
+}
+.sc-camera > div {
+  width: 50vw;
 }
 .sc-canvas-wrapper {
   width: 80vw;
@@ -173,6 +176,7 @@ body.fixed {
 .modal-dialog {
   width: 100vw;
   margin-top: 0px;
+  margin:0px;
 }
 .modal-header {
   height: 10vh;
@@ -263,5 +267,36 @@ body.fixed {
 }
 .sc-call-to-action {
   padding-bottom: 96px;
-  padding-top: 96px;
+  padding-top: 56px;
+}
+.sc-footer {
+  padding:6vw;
+}
+.sc-fb-like-wrapper {
+  margin-top: 5vw;
+}
+.sc-mobile-diagram {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: white;
+  display: block;
+  z-index: 2000;
+  color: #ea0047;
+  display: none;
+}
+.sc-mobile-diagram-image {
+  width: 80vw;
+  height: auto;
+  margin: 10vw;
+}
+.sc-mobile-diagram-text {
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+.sc-mobile-diagram > .sc-upload-label {
+  transform: translateX(-50%);
+  margin-left: 50%;
 }

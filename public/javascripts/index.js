@@ -32,9 +32,6 @@ var fbImageLoader = document.getElementById('fbLoader');
 fbImageLoader.addEventListener('click', handleFbImage, false);
 
 if (!mobile) {
-  //var imageLoader = document.getElementById('loader');
-  //imageLoader.addEventListener('change', handleImage, false);
-
   var urlImageLoader = document.getElementById('urlLoader');
   urlImageLoader.addEventListener('click', handleUrlImage, false);
 
