@@ -17,7 +17,7 @@ $(document).ready(function() {
   });
   
   function generateTwitterShare() {
-    var baseUrl = "http://twitter.com/share?text=this%20is%20a%20test%20tweet%20";
+    var baseUrl = "http://twitter.com/share?text=Fight%20The%20Swipe%20#morethanmeat%20";
     var ret;
     if (outputUrl == "") {
       ret = baseUrl + url; 

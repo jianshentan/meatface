@@ -392,8 +392,8 @@ label.sc-upload-label input[type="file"] {
   background-color: #ea0047; 
   color: white;
   text-align: center;
-  padding-left: 12%;
-  padding-right: 12%;
+  padding-left: 10%;
+  padding-right: 10%;
   padding-top: 48px;
   padding-bottom: 48px;
 }
