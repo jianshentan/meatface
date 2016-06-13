@@ -165,7 +165,7 @@ label.sc-upload-label input[type="file"] {
   border-radius: 100px;
 }
 .sc-maker-logo-siren {
-  box-shadow: 12px 12px 0px white;
+  box-shadow: 12px 12px 0px rgba(0,0,0,0.4);
 }
 .sc-maker-logo-hv {
   box-shadow: 12px 12px 0px rgba(0,0,0,0.4);
@@ -189,9 +189,9 @@ label.sc-upload-label input[type="file"] {
   text-decoration: underline;
 }
 .sc-maker-desc-siren {
-  color: #ea0047;
-  border: 5px solid #ea0047;
-  box-shadow: 12px 12px 0px white;
+  color: white;
+  box-shadow: 12px 12px 0px rgba(0,0,0,0.4);
+  background: #ea0047
 }
 .sc-maker-desc-hv {
   background-color: white;
@@ -567,4 +567,15 @@ label.sc-upload-label input[type="file"] {
     color: white;
     border-color: white;
     background-color: rgba(255,255,255,0.3);
+}
+.sc-siren-action {
+  color: #ea0047;
+  border: 1px solid #ea0047;
+  border-radius: 8px;
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
 }

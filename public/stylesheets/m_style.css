@@ -48,13 +48,13 @@ body.fixed {
   height: 70vh;
 }
 .sc-banner .h1 {
-  text-shadow: 8px 8px white;
+  text-shadow: 4px 4px white;
 }
 .sc-banner .h2 {
-  text-shadow: 6px 6px white;
+  text-shadow: 3px 3px white;
 }
 .sc-banner .h3 {
-  text-shadow: 4px 4px white;
+  text-shadow: 2px 2px white;
 }
 .sc-device {
   width: 90vw;
@@ -119,7 +119,7 @@ body.fixed {
   background-image: url('/images/bg_tile.png');
   background-repeat: repeat;
   background-size: 50vw;
-  height: 70vh;
+  height: 90vh;
 }
 .sc-body .sc-banner {
   color: #333;
@@ -299,4 +299,7 @@ body.fixed {
 .sc-mobile-diagram > .sc-upload-label {
   transform: translateX(-50%);
   margin-left: 50%;
+}
+.sc-siren-action {
+  background-color: white; 
 }

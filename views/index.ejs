@@ -9,14 +9,14 @@
     <title>MeatFace</title>
     <link rel="canonical" href="https://www.meatface.me">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="meatface,tinder,siren,dating,online dating,dating app,startup,start up,meat,face" >
-    <meta name="description" content="Swiping is not dating. Apps that only let you swipe turns you into meat. MeatFace is a movement to turn these dating apps into the meatshops that they are. Join the movement & fight the swipe!">
+    <meta name="keywords" content="meatface,tinder,siren,dating,online dating,dating app,startup,start up,meat,face,morethanmeat" >
+    <meta name="description" content="Swiping is not dating. Apps that only let you swipe turns you into meat. MeatFace is a movement to turn these dating apps into the meatshops that they are. Join the movement & fight the swipe! #morethanmeat">
    
     <!--FACEBOOK-->
     <meta property="og:title" content="MeatFace" >
     <meta property="og:site_name" content="MeatFace">
     <meta property="og:url" content="https://www.meatface.me" >
-    <meta property="og:description" content="Swiping is not dating. Apps that only let you swipe turns you into meat. MeatFace is a movement to turn these dating apps into the meatshops that they are. Join the movement & fight the swipe!" >
+    <meta property="og:description" content="Swiping is not dating. Apps that only let you swipe turns you into meat. MeatFace is a movement to turn these dating apps into the meatshops that they are. Join the movement & fight the swipe! #morethanmeat" >
     <meta property="og:image" content="<IMAGE>" >
     <meta property="fb:app_id" content="215442935493903" >
     <meta property="og:type" content="website" >
@@ -25,7 +25,7 @@
     <!--TWITTER-->
     <meta property="twitter:card" content="summary" >
     <meta property="twitter:title" content="MeatFace" >
-    <meta property="twitter:description" content="Swiping is not dating. Apps that only let you swipe turns you into meat. MeatFace is a movement to turn these dating apps into the meatshops that they are. Join the movement & fight the swipe!" >
+    <meta property="twitter:description" content="Swiping is not dating. Apps that only let you swipe turns you into meat. MeatFace is a movement to turn these dating apps into the meatshops that they are. Join the movement & fight the swipe! #morethanmeat" >
     <meta property="twitter:creator" content="@meatfaceme" >
     <meta property="twitter:url" content="https://www.meatface.me" >
     <meta property="twitter:image" content="<image>" >
@@ -168,12 +168,6 @@
           <div class="modal-body">
             
             <% if (mobile == "true") { %>
-            <!--
-            <label class="sc-upload-label">
-              <input class="inline-block" type="file" class="btn btn-default sc-loader" >
-              <span style="width:120px;" class="btn btn-default">Upload / Take photo</span>
-            </label>
-            -->
             <br>
             <button class="sc-loader btn btn-default" style="width:60vw;padding:3vw;">Upload / Take photo</button>
             <br>
@@ -211,6 +205,7 @@
                 <div class="sc-fb-profile-picture-options"></div>
                 <img class="sc-fb-profile-picture" src="">
                 <input id="fbLoader" class="sc-fb-profile-picture-submit btn btn-default" type="button" value="Submit"/>
+
               </div>
               <% if (mobile == "true") { %> <br> <% } %>
             </div>
@@ -257,7 +252,7 @@
         <% } else { %>
         <div class="sc-absolute-center sc-banner">
         <% } %>
-          <div class="h1" style="margin-top: 0px;">How to Hack Tinder</div>
+          <div class="h1" style="margin-top: 0px;">FIGHT THE SWIPE</div>
           <% if (mobile == "true") { %> <br> <% } %>
           <div class="h3">
             <div class="row">
@@ -349,17 +344,27 @@
     </div>
     
     <div class="sc-call-to-action">
-      <div class="h1">Join The Movement.<br>Fight The Swipe.</div>
-      <div class="h3">#MORETHANMEAT</div>
+      <div class="h1">Join The Movement.</div>
+      <div class="h3">USE A DATING APP THAT ACTUALLY<br>TREATS PEOPLE LIKE PEOPLE</div>
+      <div class="h3" style="margin-top: 10px;">#MORETHANMEAT</div>
     </div>
     
-    <div class="row"">
+    <div class="row">
       
-      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 
-        sc-body-left sc-body">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 sc-body-left sc-body">
         <div class="sc-absolute-center sc-banner">
           <div class="h1">Swiping is not dating.</div>
-          <div class="h3">Apps that only let you swipe turns you into meat. But there are other options out there.</div>
+          <!--<div class="h3">Apps that only let you swipe turns you into meat.</div>-->
+          <div class="h3">Try <a class="sc-siren-link" href="http://www.siren.mobi">Siren</a> instead, a dating app that connects people through conversation.</div>
+          <br>
+          <% if (mobile == "true") { %>
+          <a target="_blank" id="sc-siren-google-play" href="https://play.google.com/store/apps/details?id=mobi.siren.android"><div class="sc-siren-action">Download from Google Play</div></a>
+          <br>
+          <br>
+          <a target="_blank" id="sc-siren-itunes" href="https://itunes.apple.com/us/app/siren-socially-evolved/id895675759?mt=8&ign-mpt=uo%3D4"><div class="sc-siren-action">Download from iTunes</div></a>
+          <% } else { %>
+          <a target="_blank" id="sc-siren-webapp" href="http://app.siren.mobi"><div class="sc-siren-action">Visit the WebApp</div></a>
+          <% } %> 
         </div>
       </div>
       
@@ -375,10 +380,10 @@
           <br>
           <div class="">
             <div class="sc-maker-logo-wrapper">
-              <a href="http://www.siren.mobi" target="_blank"><img src="images/siren_logo.png" class="sc-maker-logo sc-maker-logo-siren" /> </a>
+              <a class="sc-siren-link" href="http://www.siren.mobi" target="_blank"><img src="images/siren_logo.png" class="sc-maker-logo sc-maker-logo-siren" /> </a>
             </div>
             <div class="sc-maker-desc sc-maker-desc-siren">
-              <div class="h3" style="margin-bottom: 4vw;"><a href="http://www.siren.mobi">Siren</a></div> 
+              <div class="h3" style="margin-bottom: 4vw;"><a class="sc-siren-link" href="http://www.siren.mobi">Siren</a></div> 
               <div class="h4">
                 Siren is the first dating app based around thoughtful interaction with the people around you.
                 <br>
@@ -393,12 +398,12 @@
           <div class="sc-absolute-center sc-maker-wrapper">
             <div class="row">
               <div class="col-xs-3 center">
-                <a href="http://www.siren.mobi" target="_blank"><img src="images/siren_logo.png" class="sc-maker-logo sc-maker-logo-siren" /> </a>
+                <a class="sc-siren-link" href="http://www.siren.mobi" target="_blank"><img src="images/siren_logo.png" class="sc-maker-logo sc-maker-logo-siren" /> </a>
               </div>
               <div class="col-xs-9">
                 <div class="sc-maker-desc sc-maker-desc-siren">
                   <div class="h4">
-                    <a href="http://www.siren.mobi" target="_blank">Siren</a>
+                    <a class="sc-siren-link" href="http://www.siren.mobi" target="_blank">Siren</a>
                   </div>
                   <div class="h5">
                     Siren is the first dating app based around thoughtful interaction with the people around you.
@@ -419,15 +424,12 @@
           <br>
           <div class="">
             <div class="sc-maker-logo-wrapper">
-              <a href="http://www.hellovelocity.com" target="_blank"><img src="images/hv_logo.png" class="sc-maker-logo sc-maker-logo-hv" /> </a>
+              <a href="http://www.hellovelocity.com" target="_blank"><img src="images/hv_logo.png" class="sc-maker-logo sc-maker-logo-hv sc-hv-link" /> </a>
             </div>
             <div class="sc-maker-desc sc-maker-desc-hv">
               <div class="h3" style="margin-bottom: 4vw;">Hello Velocity</div> 
               <div class="h4">
-                Hello Velocity designs brand identities for companies that do things differently, and creates campaigns to share their ideas with the world. 
-                <br>
-                <br>
-                As a creative studio that grew out of an artist collective, Hello Velocity also runs its own experimental campaigns that explore how information spreads in the social age.
+                Hello Velocity is a creative studio that grew out of an artist collective. Hello Velocity creates brands and online campaigns for companies that that do things differently.
               </div>
             </div>  
           </div>
@@ -437,15 +439,15 @@
           <div class="sc-absolute-center sc-maker-wrapper">
             <div class="row">
               <div class="col-xs-3 center">
-                <a href="http://www.hellovelocity.com" target="_blank"><img src="images/hv_logo.png" class="sc-maker-logo sc-maker-logo-hv" /> </a>
+                <a class="sc-hv-link" href="http://www.hellovelocity.com" target="_blank"><img src="images/hv_logo.png" class="sc-maker-logo sc-maker-logo-hv" /> </a>
               </div>
               <div class="col-xs-9">
                 <div class="sc-maker-desc sc-maker-desc-hv">
                   <div class="h4">
-                    <a href="http://www.hellovelocity.com" target="_blank">Hello Velocity</a>
+                    <a class="sc-hv-link" href="http://www.hellovelocity.com" target="_blank">Hello Velocity</a>
                   </div>
                   <div class="h5">
-                    Hello Velocity is a creative studio that grew out of an artist collective. Hello Velocity creates brands and online campaigns to provoke conversation  and explore information spread in the social age. 
+                    Hello Velocity is a creative studio that grew out of an artist collective. Hello Velocity creates brands and online campaigns for companies that that do things differently.
                   </div>
                 </div>
               </div>
@@ -461,24 +463,28 @@
       <div class="row">
         <div class="col-xs-6" style="padding: 2vw">
           <div class="sc-faq-wrapper">
-            <a href="/faq">F.A.Q</a>
+            <a href="/faq" id="faq">F.A.Q</a>
           </div> 
         </div>
         <div class="col-xs-6" style="padding: 2vw">
           <div class="sc-pp-wrapper">
-            <a href="/privacy">Privacy</a>
+            <a href="/privacy" id="privacy">Privacy</a>
           </div>
         </div>
       </div>
       <div class="sc-fb-like-wrapper">
         <div
-            class="fb-like"
-            data-layout="button"
-            data-action="like"
-            data-share="true"
-            data-width="200"
-            data-show-faces="false">
-          </div>
+          class="fb-like"
+          data-layout="button"
+          data-action="like"
+          data-share="true"
+          data-width="200"
+          data-show-faces="false">
+        </div>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://www.meatface.me" data-via="meatfaceme" data-hashtags="morethanmeat">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        <style>
+          iframe.twitter-share-button { vertical-align: bottom; }
+        </style>
       </div>
       <% } else { %>
       <div class="row">
@@ -494,6 +500,7 @@
             data-width="200"
             data-show-faces="false">
           </div>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://www.meatface.me" data-via="meatfaceme" data-hashtags="morethanmeat">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
       </div>
       <% } %>
@@ -516,6 +523,36 @@
     
   </body>
 
+  
+  <% if (mobile == "true") { %>
+  <script>
+    $(".sc-loader").click(function() { ga('send', 'event', 'modalButton', 'click', 'm/modal/upload', { nonInteraction: true }); });
+    $("#fbLoader").click(function() { ga('send', 'event', 'modalButton', 'click', 'm/modal/fb', { nonInteraction: true }); })
+    $("#sc-siren-google-play").click(function() { ga('send', 'event', 'button', 'click', 'sirenGooglePlay', { nonInteraction: true }); })
+    $("#sc-siren-itunes").click(function() { ga('send', 'event', 'button', 'click', 'sireniTunes', { nonInteraction: true }); })
+  </script>
+  <% } else { %>
+  <script>
+    $("#webcamLoader").click(function() { ga('send', 'event', 'modalButton', 'click', 'd/modal/webcam', { nonInteraction: true }); })
+    $("#loader").click(function() { ga('send', 'event', 'modalButton', 'click', 'd/modal/upload', { nonInteraction: true }); })
+    $("#fbLoader").click(function() { ga('send', 'event', 'modalButton', 'click', 'd/modal/fb', { nonInteraction: true }); })
+    $("#urlLoader").click(function() { ga('send', 'event', 'modalButton', 'click', 'd/modal/url', { nonInteraction: true }); })
+    $("#sc-siren-webapp").click(function() { ga('send', 'event', 'button', 'click', 'sirenWebapp', { nonInteraction: true }); })
+  </script>
+  <% } %> 
+  
+  <script>
+    $("#sc-camera").click(function(){ ga('send', 'event', 'button', 'click', 'canvas/takePicture', { nonInteraction: true }); });
+    $(".sc-load-image").click(function() { ga('send', 'event', 'button', 'click', 'canvas/newImage', { nonInteraction: true }); });
+    $("#sc-siren-link").click(function() { ga('send', 'event', 'button', 'click', 'sirenWebsite', { nonInteraction: true }); })
+    $("#sc-hv-link").click(function() { ga('send', 'event', 'button', 'click', 'hvWebsite', { nonInteraction: true }); })
+    $("#download-canvas").click(function() { ga('send', 'event', 'button', 'click', 'canvas/download', { nonInteraction: true }); })
+    $("#fb-share").click(function() { ga('send', 'event', 'button', 'click', 'canvas/fbShare', { nonInteraction: true }); })
+    $("#twitter-share").click(function() { ga('send', 'event', 'button', 'click', 'canvas/twitterShare', { nonInteraction: true }); })
+    $("#faq").click(function() { ga('send', 'event', 'button', 'click', 'faq', { nonInteraction: true }); })
+    $("#privacy").click(function() { ga('send', 'event', 'button', 'click', 'privacy', { nonInteraction: true }); })
+  </script>
+  
   <script src="javascripts/index.js"></script>
   
 </html>
