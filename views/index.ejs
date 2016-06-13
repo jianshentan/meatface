@@ -143,12 +143,12 @@
                 
     <% if (mobile == "true") { %>
     <div class="sc-mobile-diagram">
-      <img class="sc-mobile-diagram-image" src="/images/mobile_diagram.png">
-      <div class="sc-mobile-diagram-text h5">To ensure the best results, make sure that the faces in the image you use appear in the top portion of the frame as shown above.</div>
       <label class="sc-upload-label center">
         <input class="inline-block" type="file" id="loader" class="btn btn-default sc-loader" >
         <span style="width:120px;" class="btn btn-default">Upload / Take photo</span>
       </label>
+      <img class="sc-mobile-diagram-image" src="/images/mobile_diagram.png">
+      <div class="sc-mobile-diagram-text h5">To ensure the best results, make sure that the faces in the image you use appears in the top portion of the frame as shown above.</div>
     </div>
     <script>
       $("#loader").click(function(){ 
@@ -263,7 +263,7 @@
           <div class="h3">
             <div class="row">
               <div class="col-xs-1">2.</div>
-              <div class="col-xs-10">Set it as your dating app profile picture.</div>
+              <div class="col-xs-10">Set it as your Tinder profile picture.</div>
             </div>
           </div>
           <div class="h3">
@@ -274,7 +274,7 @@
           </div>
           <% if (mobile == "true") { %> <br> <% } %>
           <div class="h3">
-            <strong>Let's turn these dating apps into the meatshops that they really are!</strong>
+            <strong>Let's turn Tinder into the meatshops that they really are!</strong>
           </div>
           
         </div> 
@@ -345,7 +345,11 @@
     
     <div class="sc-call-to-action">
       <div class="h1">Join The Movement.</div>
+      <% if (mobile == "true") { %>
+      <div class="h3">USE A DATING APP THAT ACTUALLY TREATS PEOPLE LIKE PEOPLE</div>
+      <% } else { %>
       <div class="h3">USE A DATING APP THAT ACTUALLY<br>TREATS PEOPLE LIKE PEOPLE</div>
+      <% } %>
       <div class="h3" style="margin-top: 10px;">#MORETHANMEAT</div>
     </div>
     
@@ -526,17 +530,17 @@
   
   <% if (mobile == "true") { %>
   <script>
-    $(".sc-loader").click(function() { ga('send', 'event', 'modalButton', 'click', 'm/modal/upload', { nonInteraction: true }); });
-    $("#fbLoader").click(function() { ga('send', 'event', 'modalButton', 'click', 'm/modal/fb', { nonInteraction: true }); })
+    $(".sc-loader").click(function() { ga('send', 'event', 'button', 'click', 'm/modal/upload', { nonInteraction: true }); });
+    $("#fbLoader").click(function() { ga('send', 'event', 'button', 'click', 'm/modal/fb', { nonInteraction: true }); })
     $("#sc-siren-google-play").click(function() { ga('send', 'event', 'button', 'click', 'm/sirenGooglePlay', { nonInteraction: true }); })
     $("#sc-siren-itunes").click(function() { ga('send', 'event', 'button', 'click', 'm/sireniTunes', { nonInteraction: true }); })
   </script>
   <% } else { %>
   <script>
-    $("#webcamLoader").click(function() { ga('send', 'event', 'modalButton', 'click', 'd/modal/webcam', { nonInteraction: true }); })
-    $("#loader").click(function() { ga('send', 'event', 'modalButton', 'click', 'd/modal/upload', { nonInteraction: true }); })
-    $("#fbLoader").click(function() { ga('send', 'event', 'modalButton', 'click', 'd/modal/fb', { nonInteraction: true }); })
-    $("#urlLoader").click(function() { ga('send', 'event', 'modalButton', 'click', 'd/modal/url', { nonInteraction: true }); })
+    $("#webcamLoader").click(function() { ga('send', 'event', 'button', 'click', 'd/modal/webcam', { nonInteraction: true }); })
+    $("#loader").click(function() { ga('send', 'event', 'button', 'click', 'd/modal/upload', { nonInteraction: true }); })
+    $("#fbLoader").click(function() { ga('send', 'event', 'button', 'click', 'd/modal/fb', { nonInteraction: true }); })
+    $("#urlLoader").click(function() { ga('send', 'event', 'button', 'click', 'd/modal/url', { nonInteraction: true }); })
     $("#sc-siren-webapp").click(function() { ga('send', 'event', 'button', 'click', 'd/sirenWebapp', { nonInteraction: true }); })
   </script>
   <% } %> 
