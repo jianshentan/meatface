@@ -259,11 +259,18 @@ body.fixed {
   height: auto;
   box-shadow: 2vw 2vw 0px #ea0047;
 }
+.sc-overlay-content .h1 {
+  font-size: 7vw;
+  line-height: 9vw;
+}
 .sc-overlay-center {
   width: 80%;
 }
 .sc-overlay-content {
   width: 100%;
+}
+.sc-overlay-chat-b {
+  margin-left: 16vw; 
 }
 .sc-call-to-action {
   padding-bottom: 96px;

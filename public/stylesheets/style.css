@@ -466,14 +466,6 @@ label.sc-upload-label input[type="file"] {
    =========================== */
    
 .sc-overlay {
-  /*position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  overflow: hidden;
-  z-index: 2000;
-  */
   color: white;
   background-color: #ea0047;
   height: 100vh;
@@ -489,6 +481,19 @@ label.sc-upload-label input[type="file"] {
 }
 .sc-overlay .h1 {
   text-transform: inherit !important;
+}
+.sc-overlay-chat-a {
+  background-color: white;
+  color: #ea0047;
+  display: inline;
+  padding: 20px;
+  border-radius: 8px;
+}
+.sc-overlay-chat-b {
+  border: 1px solid white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-left: 80px;
 }
 .sc-overlay-right {
   position: absolute;
