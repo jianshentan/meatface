@@ -348,7 +348,7 @@
     </div>
     
     <div class="sc-call-to-action">
-      <div class="h1">JOIN THE MOVEMENT. Fight the swipe.</div>
+      <div class="h1">JOIN THE MOVEMENT: <a href="https://www.siren.mobi" target="_blank" style="color:white; text-decoration:underline">Fight the swipe.</a></div>
       <% if (mobile == "true") { %>
       <div class="h3">DATING APPS SHOULD TREAT YOU LIKE A PERSON.</div>
       <% } else { %>
@@ -362,17 +362,16 @@
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 sc-body-left sc-body">
         <div class="sc-absolute-center sc-banner">
           <div class="h1">Swiping is not dating.</div>
-          <!--<div class="h3">Apps that only let you swipe turns you into meat.</div>-->
-          <div class="h3">Try <a class="sc-siren-link" href="http://www.siren.mobi">Siren</a> instead, a dating app that connects people through conversation.</div>
-          <br>
+          
           <% if (mobile == "true") { %>
-          <a target="_blank" id="sc-siren-google-play" href="https://play.google.com/store/apps/details?id=mobi.siren.android"><div class="sc-siren-action">Download from Google Play</div></a>
-          <br>
-          <br>
-          <a target="_blank" id="sc-siren-itunes" href="https://itunes.apple.com/us/app/siren-socially-evolved/id895675759?mt=8&ign-mpt=uo%3D4"><div class="sc-siren-action">Download from iTunes</div></a>
+          <div class="h3">Apps that only let you swipe turns you into meat.</div>
+          <div class="h3">Swiping as a mechanism encourages us to market ourselves like window-display products-- we optimize lighting, angles, and backgrounds.</div>
+          <div class="h3">Stripped of actual interaction, our human faces become nothing more than meat behind glass, to be assessed on the quality of their presentation.</div>
           <% } else { %>
-          <a target="_blank" id="sc-siren-webapp" href="http://app.siren.mobi"><div class="sc-siren-action">Visit the WebApp</div></a>
-          <% } %> 
+          <div class="h4">Apps that only let you swipe turns you into meat.</div>
+          <div class="h4">Swiping as a mechanism encourages us to market ourselves like window-display products-- we optimize lighting, angles, and backgrounds.</div>
+          <div class="h4">Stripped of actual interaction, our human faces become nothing more than meat behind glass, to be assessed on the quality of their presentation.</div>
+          <% } %>
         </div>
       </div>
       
@@ -479,6 +478,11 @@
             <a href="/privacy" id="privacy">Privacy</a>
           </div>
         </div>
+        <div class="col-xs-12" style="padding: 2vw">
+          <div class="sc-pp-wrapper">
+            <a href="mailto:meatface@siren.mobi" id="contact">Contact</a>
+          </div>
+        </div>
       </div>
       <div class="sc-fb-like-wrapper">
         <div
@@ -497,7 +501,7 @@
       <% } else { %>
       <div class="row">
         <div class="sc-footer-left col-xs-6">
-          <a href="/faq">FAQ</a> / <a href="/privacy">Privacy Policy</a>
+          <a href="/faq" id="faq">FAQ</a> / <a href="/privacy" id="privacy">Privacy Policy</a> / <a href="mailto:meatface@siren.mobi" id="contact">Contact</a>
         </div>
         <div class="sc-footer-right col-xs-6">
           <div
@@ -536,8 +540,8 @@
   <script>
     $(".sc-loader").click(function() { ga('send', 'event', 'button', 'click', 'm/modal/upload', { nonInteraction: true }); });
     $("#fbLoader").click(function() { ga('send', 'event', 'button', 'click', 'm/modal/fb', { nonInteraction: true }); })
-    $("#sc-siren-google-play").click(function() { ga('send', 'event', 'button', 'click', 'm/sirenGooglePlay', { nonInteraction: true }); })
-    $("#sc-siren-itunes").click(function() { ga('send', 'event', 'button', 'click', 'm/sireniTunes', { nonInteraction: true }); })
+    //$("#sc-siren-google-play").click(function() { ga('send', 'event', 'button', 'click', 'm/sirenGooglePlay', { nonInteraction: true }); })
+    //$("#sc-siren-itunes").click(function() { ga('send', 'event', 'button', 'click', 'm/sireniTunes', { nonInteraction: true }); })
   </script>
   <% } else { %>
   <script>
@@ -545,7 +549,7 @@
     $("#loader").click(function() { ga('send', 'event', 'button', 'click', 'd/modal/upload', { nonInteraction: true }); })
     $("#fbLoader").click(function() { ga('send', 'event', 'button', 'click', 'd/modal/fb', { nonInteraction: true }); })
     $("#urlLoader").click(function() { ga('send', 'event', 'button', 'click', 'd/modal/url', { nonInteraction: true }); })
-    $("#sc-siren-webapp").click(function() { ga('send', 'event', 'button', 'click', 'd/sirenWebapp', { nonInteraction: true }); })
+    //$("#sc-siren-webapp").click(function() { ga('send', 'event', 'button', 'click', 'd/sirenWebapp', { nonInteraction: true }); })
   </script>
   <% } %> 
   
@@ -559,6 +563,7 @@
     $("#twitter-share").click(function() { ga('send', 'event', 'button', 'click', 'canvas/twitterShare', { nonInteraction: true }); })
     $("#faq").click(function() { ga('send', 'event', 'button', 'click', 'faq', { nonInteraction: true }); })
     $("#privacy").click(function() { ga('send', 'event', 'button', 'click', 'privacy', { nonInteraction: true }); })
+    $("#contact").click(function() { ga('send', 'event', 'button', 'click', 'contact', { nonInteraction: true }); })
   </script>
   
   <script src="javascripts/index.js"></script>
