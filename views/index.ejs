@@ -365,11 +365,11 @@
           
           <% if (mobile == "true") { %>
           <div class="h3">Apps that only let you swipe turn you into meat.</div>
-          <div class="h3">Swiping as a mechanism encourages us to market ourselves like window-display products.</div>
+          <div class="h3"><a href="http://www.siren.mobi/blog/we-live-to-fight-the-swipe-1" target="_blank" id="swipeBlog">Swiping as a mechanism</a> encourages us to market ourselves like window-display products.</div>
           <div class="h3">Stripped of actual interaction, our human faces become nothing more than meat behind glass, to be assessed on the quality of their presentation.</div>
           <% } else { %>
           <div class="h4">Apps that only let you swipe turn you into meat.</div>
-          <div class="h4">Swiping as a mechanism encourages us to market ourselves like window-display products.</div>
+          <div class="h4"><a href="http://www.siren.mobi/blog/we-live-to-fight-the-swipe-1" target="_blank" id="swipeBlog">Swiping as a mechanism</a> encourages us to market ourselves like window-display products.</div>
           <div class="h4">Stripped of actual interaction, our human faces become nothing more than meat behind glass, to be assessed on the quality of their presentation.</div>
           <% } %>
         </div>
@@ -564,6 +564,7 @@
     $("#faq").click(function() { ga('send', 'event', 'button', 'click', 'faq', { nonInteraction: true }); })
     $("#privacy").click(function() { ga('send', 'event', 'button', 'click', 'privacy', { nonInteraction: true }); })
     $("#contact").click(function() { ga('send', 'event', 'button', 'click', 'contact', { nonInteraction: true }); })
+    $("#swipeBlog").click(function() { ga('send', 'event', 'button', 'click', 'swipeBlog', { nonInteraction: true }); })
   </script>
   
   <script src="javascripts/index.js"></script>
