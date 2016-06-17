@@ -24,20 +24,11 @@ router.get('/', function(req, res, next) {
   }
 });
 
-router.post('/', function(req, res, next) {
-  if (req.body.password == PRIVATE_PREVIEW_PASSWORD ||
-      req.body.password == FACEBOOK_PREVIEW_PASSWORD) {
-    if (req.mobile == true) {
-      res.render('index', { mobile: "true" });
-    } else {
-      res.render('index', { mobile: "false" });
-    }
+router.post('/enter', function(req, res, next) {
+  if (req.mobile == true) {
+    res.render('index', { mobile: "true" });
   } else {
-    if (req.mobile == true) {
-      res.render('gate', { access: "denied", mobile: "true" });
-    } else {
-      res.render('gate', { access: "denied", mobile: "false" });
-    }
+    res.render('index', { mobile: "false" });
   }
 });
 
