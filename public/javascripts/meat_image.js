@@ -11,6 +11,7 @@ function MeatImage(src, ori) {
   
   this.img = new Image();
   this.img.src = src;
+  this.ori = ori || null;
   
   //load img to get img data
   var meatImage = this;

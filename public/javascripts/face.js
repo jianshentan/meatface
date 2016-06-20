@@ -23,6 +23,8 @@ var meatSrcList = [{
 function Face(data, meatImage) {
    this.meatImage = meatImage;
    this.meat = meatSrcList[Math.floor(Math.random() * meatSrcList.length)];
+   this.width = meatImage.width;
+   this.height = meatImage.height;
     
    // FACE 
    this.faceWidth = data.faceRectangle.width;
@@ -268,6 +270,31 @@ Face.prototype = {
    },
    
    addHashtag: function(cb) {
+     
+      var offsetFactor = 0;
+      var CANVAS_HEIGHT = 0;
+      var CANVAS_WIDTH = 0;
+      
+      if (this.meatImage.ori != null) {
+        CANVAS_HEIGHT = 750;
+        CANVAS_WIDTH = 750;
+        offsetFactor = 160;
+      } else {
+        CANVAS_HEIGHT = 1000;
+        CANVAS_WIDTH = 1000;
+        offsetFactor = 200;
+      }
+      
+      ctx.fillStyle = "#EA0047";
+      ctx.fillRect(0, CANVAS_HEIGHT - CANVAS_HEIGHT * 0.1, CANVAS_WIDTH /* * .46 */, CANVAS_HEIGHT * 0.1)
+      
+      var fontSize = CANVAS_WIDTH * 20/360; 
+      ctx.font = fontSize + "px Helvetica";
+      ctx.fillStyle = "white";
+      ctx.fillText("#morethanmeat", CANVAS_WIDTH/2 - offsetFactor, CANVAS_HEIGHT - fontSize/2);
+      
+      /*
+       
       ctx.fillStyle = "#EA0047";
       ctx.fillRect(0, CANVAS_HEIGHT - CANVAS_HEIGHT * 0.1, CANVAS_WIDTH * .46, CANVAS_HEIGHT * 0.1)
       
@@ -275,6 +302,8 @@ Face.prototype = {
       ctx.font = fontSize + "px Helvetica";
       ctx.fillStyle = "white";
       ctx.fillText("#morethanmeat", fontSize/2, CANVAS_HEIGHT - fontSize/2);
+      
+      */
       
       cb();
    }

@@ -19,18 +19,11 @@ $(document).ready(function() {
 function generateTwitterShare() {
   var baseUrl = "http://twitter.com/share?text=Fight%20The%20Swipe%20%23morethanmeat%20";
   var ret;
-  console.log("A");
   if (outputUrl == "") {
-    console.log("B");
     ret = baseUrl + url; 
   } else {
-    console.log("C");
     ret = baseUrl + outputUrl + "%20" + url; 
   }
-  console.log("D");
-  console.log("ret: " + ret);
-  console.log("baseUrl: " + baseUrl);
-  console.log("url: " + url);
   return ret;
 }; 
 
@@ -44,7 +37,6 @@ function updateTwitterShare(link) {
     
     // recreate click event;
     $("#twitter-share").click(function() {
-      console.log("CLICKED");
       window.open(generateTwitterShare(), 'twitter', opts);
     });
     
