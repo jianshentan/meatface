@@ -5,7 +5,19 @@
    
 var meatSrcList = [{
     src: "../images/meat1.png",
-    type: "steak",
+    type: "steak"
+  }, {
+    src: "../images/meat2.png",
+    type: "steak"
+  }, {
+    src: "../images/meat3.png",
+    type: "steak"
+  }, {
+    src: "../images/meat4.png",
+    type: "steak"
+  }, {
+    src: "../images/meat5.png",
+    type: "steak"
   }];
 
 function Face(data, meatImage) {

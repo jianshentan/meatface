@@ -150,7 +150,7 @@
         <span style="width:120px;" class="btn btn-default">Upload / Take photo</span>
       </label>
       <img class="sc-mobile-diagram-image" src="/images/mobile_diagram.png">
-      <div class="sc-mobile-diagram-text h5">To ensure the best results, make sure that the faces in the image you use appears in the top portion of the frame as shown above.</div>
+      <div class="sc-mobile-diagram-text h5">To ensure the best results, hold your phone vertically and make sure that the faces appear in the top portion of the frame as shown above.</div>
     </div>
     <script>
       $("#loader").click(function(){ 
@@ -314,8 +314,8 @@
               });
             </script>
             
-            <canvas id="canvas-back" class="sc-canvas"></canvas>
-            <canvas id="canvas-front" class="sc-canvas"></canvas>
+            <canvas id="canvas-back" class="sc-canvas" width="1000px" height="1000px"></canvas>
+            <canvas id="canvas-front" class="sc-canvas" width="1000px" height="1000px"></canvas>
             
             <% if (mobile != "true") { %>
             <video autoplay="true" id="video-stream" class="sc-video-stream" style="display:none"></video>

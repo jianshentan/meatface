@@ -17,6 +17,7 @@ function MeatImage(src, ori) {
   this.img.onload = function() {
     meatImage.width = meatImage.img.width;
     meatImage.height = meatImage.img.height;
+    
     $.get("/pre-ori-"+ori);
     if (ori) {
       meatImage.renderImage(ori);
@@ -43,29 +44,31 @@ MeatImage.prototype = {
   renderImage: function(ori) {
     // dynamically crop image to fit in canvas 
        
+    var imgWidth = this.img.width;
+    var imgHeight= this.img.height;
+    
     // if img is portrait
-    $.get("/draw_image");
-    if (this.img.height > this.img.width) {
+    if (imgHeight > imgWidth) {
       ctx.drawImage(this.img, 
-        0, (this.img.height - this.img.width)/2, 
-        this.img.width, this.img.height,
-        0, 0, canvas.width, canvas.width * this.img.height / this.img.width);
+        0, (imgHeight - imgWidth)/2, 
+        imgWidth, imgHeight,
+        0, 0, canvas.width, canvas.width * imgHeight / imgWidth);
       bgCtx.drawImage(this.img, 
-        0, (this.img.height - this.img.width)/2, 
-        this.img.width, this.img.height,
-        0, 0, canvas.width, canvas.width * this.img.height / this.img.width); 
+        0, (imgHeight - imgWidth)/2, 
+        imgWidth, imgHeight,
+        0, 0, canvas.width, canvas.width * imgHeight / imgWidth); 
     }
     // if img is landscape
     else {
       ctx.drawImage(this.img, 
-        (this.img.width - this.img.height)/2, 0, 
-        this.img.width, this.img.height,
-        0, 0, canvas.height * this.img.width / this.img.height, canvas.height);
+        (imgWidth - imgHeight)/2, 0, 
+        imgWidth, imgHeight,
+        0, 0, canvas.height * imgWidth / imgHeight, canvas.height);
       bgCtx.drawImage(this.img, 
-        (this.img.width - this.img.height)/2, 0, 
-        this.img.width, this.img.height,
-        0, 0, canvas.height * this.img.width / this.img.height, canvas.height);
-    }
+        (imgWidth - imgHeight)/2, 0, 
+        imgWidth, imgHeight,
+        0, 0, canvas.height * imgWidth / imgHeight, canvas.height);
+    }   
      
     this.dataUrl = canvas.toDataURL();
     this.microsoftFaceDetect();
@@ -82,8 +85,6 @@ MeatImage.prototype = {
     };
     
     var meatImage = this;
-    console.log("meat image:");
-    console.dir(meatImage.getBinaryImage());
     
     $.ajax({
       url: url + $.param(params),
@@ -97,9 +98,6 @@ MeatImage.prototype = {
       processData: false
     })
     .done(function(data) {
-      console.log("Response:");
-      console.log(data); 
-      
       // no faces detected
       if (data.length <= 0) {
         Util.handleError("no faces detected");  
@@ -120,7 +118,6 @@ MeatImage.prototype = {
       face.drawMeat(cb);
     }, function(err) {
       if (err) {
-        console.log(err);
         return;
       }
       // upload image retrieves the URL that the image is located at

@@ -36,8 +36,6 @@ function generateTwitterShare() {
 
 function updateTwitterShare(link) {
   
-  console.log("UPDATE is called");
-  
   // remove click event
   $("#twitter-share").addClass("active").unbind();
   

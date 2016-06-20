@@ -18,12 +18,13 @@ var imageCacheQueue= [];
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if (req.mobile == true) {
-    res.render('gate', { access: "na", mobile: "true" });
+    res.render('index', { mobile: "true" });
   } else {
-    res.render('gate', { access: "na", mobile: "false" });
+    res.render('index', { mobile: "false" });
   }
 });
 
+/* private preview endpoints
 router.post('/enter', function(req, res, next) {
   if (req.mobile == true) {
     res.render('index', { mobile: "true" });
@@ -31,6 +32,7 @@ router.post('/enter', function(req, res, next) {
     res.render('index', { mobile: "false" });
   }
 });
+*/
 
 router.get('/faq', function(req, res, next) {
   if (req.mobile == true) {

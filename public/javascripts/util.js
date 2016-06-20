@@ -70,7 +70,6 @@ var Util = {
     var img = document.getElementById('imageUrl');
     img.setAttribute('crossOrigin', 'anonymous');
     img.onload = function() {
-      console.log("image loaded");
       var canvas = document.createElement("canvas");
       canvas.width = img.width;
       canvas.height = img.height;
@@ -118,7 +117,6 @@ var Util = {
     $.post('/upload', { img : dt })
     .done(function(data) {
       cb(null, data.url);
-      console.log(data); 
     })
     .fail(function(xhr, textStatus, errorThrown) {
       cb(textStatus, null);

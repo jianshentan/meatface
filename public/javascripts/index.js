@@ -3,8 +3,8 @@
    CONSTANTS 
    ============================= */
 
-var CANVAS_WIDTH = $(".sc-canvas").width();
-var CANVAS_HEIGHT = $(".sc-canvas").height();
+var CANVAS_WIDTH = 1000;
+var CANVAS_HEIGHT = 1000;
 
 /* =============================
    MOBILE 
@@ -62,17 +62,11 @@ function handleImage(e){
         if (data.exif) {
           ori = data.exif.get('Orientation');
         }
-
-        console.log("ori-"+ori);
-        $.get("/ori-"+ori);
        
         ctx.save();
         bgCtx.save();
         
         var mpImg = new MegaPixImage(e.target.files[0]);  
-        //var mpImg = new MegaPixImage(event.target.result);
-        //var bgCanvas = document.getElementById('canvas-back');
-        //var canvas = document.getElementById('canvas-front');
         
         // TODO - horizontal selfies not working
         
@@ -81,11 +75,11 @@ function handleImage(e){
           $("#canvas-front").width($("#canvas-front").width() * 4/3);
         }
         
-        mpImg.render(bgCanvas, { width: $("#canvas-back").width(), 
-                                 height: $("#canvas-back").height(), 
+        mpImg.render(bgCanvas, { width: 1000,//$("#canvas-back").width(), 
+                                 height: 750, //$("#canvas-back").height(), 
                                  orientation: ori });
-        mpImg.render(canvas, { width: $("#canvas-front").width(), 
-                               height: $("#canvas-front").height(),
+        mpImg.render(canvas, { width: 1000, //$("#canvas-front").width(), 
+                               height: 750, //$("#canvas-front").height(),
                                orientation: ori });
 
         var mpImgDataURL = canvas.toDataURL();
@@ -171,8 +165,8 @@ function handleWebcamImage(e) {
     */
     
   takePictureButton.click(function(){ 
-    canvas.width = 360;
-    canvas.height = 360;
+    canvas.width = 1000;
+    canvas.height = 1000;
      
     /*
     ctx.translate(480, 0);
@@ -181,7 +175,8 @@ function handleWebcamImage(e) {
     bgCtx.scale(-1, 1);   
     */
    
-    ctx.drawImage(video, 0, 0, 480, 480, 0, 0, 360, 360);
+    ctx.drawImage(video, 0, 0, 480, 480, 0, 0, 1000, 1000);
+    //ctx.drawImage(video, 0, 0, 480, 480, 0, 0, 360, 360); 
     
     new MeatImage(canvas.toDataURL());
     videoElement.hide();
