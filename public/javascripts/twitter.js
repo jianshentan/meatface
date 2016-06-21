@@ -34,11 +34,11 @@ function updateTwitterShare(link) {
   
   $.get('/shorten/'+encodeURIComponent(link), function(data) {
     outputUrl = data.shortUrl;
-    
+  })
+  .always(function() {
     // recreate click event;
     $("#twitter-share").click(function() {
       window.open(generateTwitterShare(), 'twitter', opts);
     });
-    
   });
 };

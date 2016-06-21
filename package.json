@@ -8,7 +8,7 @@
   "dependencies": {
     "async": "^2.0.0-rc.4",
     "azure-storage": "^0.10.0",
-    "bitly": "^4.1.1",
+    "bitly": "4.1.1",
     "body-parser": "~1.13.2",
     "bower": "^1.7.9",
     "cookie-parser": "~1.3.5",
