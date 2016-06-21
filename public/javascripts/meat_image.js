@@ -3,7 +3,6 @@
    ============================= */
  
 function MeatImage(src, ori) {
-  $.get("/pre-pre-ori-"+ori);
   this.dataUrl = null;
   this.width = null;
   this.height = null;
@@ -19,7 +18,6 @@ function MeatImage(src, ori) {
     meatImage.width = meatImage.img.width;
     meatImage.height = meatImage.img.height;
     
-    $.get("/pre-ori-"+ori);
     if (ori) {
       meatImage.renderImage(ori);
     } else {

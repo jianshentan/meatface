@@ -32,9 +32,9 @@ window.fbAsyncInit = function() {
   $("#fb-share").on('click', function() {
     FB.ui({
       method: "feed",
-      link: "http://hellovelocity.com/",
-      caption: "Example.com",
-      description: "Here is the text I want to share.",
+      link: "https://meatface.me/",
+      caption: "Take A Picture. Join the Movement. #morethanmeat",
+      description: "Swiping is not dating. Apps that only let you swipe turns you into meat. MeatFace is a movement agaisnt it. Join the movement & fight the swipe!",
       picture: "http://www.hellovelocity.com/images/fb-banner.png"
     });
   });
@@ -47,8 +47,8 @@ function updateFbShare(url) {
     FB.ui({
       method: "feed",
       link: "http://meatface.me",
-      caption: "Take A Picture. Join the Movement.",
-      description: "Updated description text...",
+      caption: "Take A Picture. Join the Movement. #morethanmeat",
+      description: "Swiping is not dating. Apps that only let you swipe turns you into meat. MeatFace is a movement agaisnt it. Join the movement & fight the swipe!",
       picture: url
     });
   }); 
