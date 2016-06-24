@@ -55,9 +55,13 @@ router.get('/shorten/:url', function(req, res) {
   .then(function(response) {
     var shortUrl = response.data.url; 
     res.json({
-      shortUrl: shortUrl
+      shortUrl: shortUrl,
+      error: null
     });
   }, function(error) {
+    res.json({
+      error: error
+    })
     throw error;
   });
 })
