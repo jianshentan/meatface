@@ -1,5 +1,5 @@
 var accessToken = "922f2202ac7fd7d5d02797784322b3d6230a50d9";
-var url = "https://www.meatface.me";
+var url = "www.meatface.me";
 var outputUrl = "";
 var width  = 575,
     height = 400,
@@ -18,12 +18,11 @@ $(document).ready(function() {
 });
 
 function generateTwitterShare() {
-  var baseUrl = "http://twitter.com/share?text=Fight%20The%20Swipe%20%23morethanmeat%20";
   var ret;
   if (outputUrl == "") {
-    ret = baseUrl + url; 
+    ret = "http://twitter.com/share?text=Meat-face%20yourself%20now%20%23morethanmeat%20" + url; 
   } else {
-    ret = baseUrl + outputUrl + "%20" + url; 
+    ret = "http://twitter.com/share?text=Want%20to%20see%20me%20meat-faced?%20" + outputUrl + "%20%23morethanmeat%20" + url; 
   }
   return ret;
 }; 
