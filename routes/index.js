@@ -60,6 +60,7 @@ router.get('/shorten/:url', function(req, res) {
       error: null
     });
   }, function(error) {
+    res.send(error);
     throw error;
   });
 })
