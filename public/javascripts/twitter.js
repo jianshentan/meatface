@@ -1,3 +1,4 @@
+var accessToken = "922f2202ac7fd7d5d02797784322b3d6230a50d9";
 var url = "https://www.meatface.me";
 var outputUrl = "";
 var width  = 575,
@@ -32,13 +33,17 @@ function updateTwitterShare(link) {
   // remove click event
   $("#twitter-share").addClass("active").unbind();
   
-  $.get('/shorten/'+encodeURIComponent(link), function(data) {
-    outputUrl = data.shortUrl;
-  })
-  .always(function() {
-    // recreate click event;
+  getShortUrl(link, function(shortUrl) {
+    outputUrl = shortUrl;
     $("#twitter-share").click(function() {
       window.open(generateTwitterShare(), 'twitter', opts);
     });
   });
+
 };
+
+function getShortUrl(longUrl, cb) {
+  $.get("https://api-ssl.bitly.com/v3/shorten?access_token="+accessToken+"&longUrl=http://"+encodeURIComponent(longUrl), function(res) {
+    cb(res.data.url);
+  });
+}
