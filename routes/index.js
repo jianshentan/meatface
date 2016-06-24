@@ -60,6 +60,8 @@ router.get('/shorten/:url', function(req, res) {
       error: null
     });
   }, function(error) {
+    console.log("TWITTER ERROR: ");
+    console.log(error)
     res.send(error);
     throw error;
   });
