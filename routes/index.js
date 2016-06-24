@@ -51,6 +51,7 @@ router.get('/privacy', function(req, res, next) {
 });
 
 router.get('/shorten/:url', function(req, res) {
+  console.log("TWITTER START: ");
   bitly.shorten("http://"+req.params.url) // considered invalid uri without 'http'
   .then(function(response) {
     var shortUrl = response.data.url; 
