@@ -22,7 +22,7 @@ function generateTwitterShare() {
   if (outputUrl == "") {
     ret = "http://twitter.com/share?text=Meat-face%20yourself%20now%20%23morethanmeat%20" + url; 
   } else {
-    ret = "http://twitter.com/share?text=Want%20to%20see%20me%20meat-faced?%20" + outputUrl + "%20%23morethanmeat%20" + url; 
+    ret = "http://twitter.com/share?text=I%20MEATFACED%20MYSELF%20👉%20" + outputUrl + "%20👈%20%20%23morethanmeat%20" + url; 
   }
   return ret;
 }; 
